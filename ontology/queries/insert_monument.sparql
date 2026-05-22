@@ -1,0 +1,9 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX safi: <http://example.org/safionto/>
+
+INSERT DATA {
+    safi:NewMonument rdf:type safi:HeritageMonument ;
+        rdfs:label "New Monument Name" ;
+        safi:hasDescription "Description of the new heritage site." .
+}
