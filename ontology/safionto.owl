@@ -1,0 +1,18 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix safi: <http://example.org/safionto/> .
+
+safi:Ontology rdf:type owl:Ontology ;
+    rdfs:label "Safi Cultural Heritage Ontology"@en .
+
+# Classes
+safi:HeritageMonument rdf:type owl:Class ;
+    rdfs:subClassOf crm:E24_Physical_Human_Made_Thing ;
+    rdfs:label "Heritage Monument"@en .
+
+# Properties
+safi:hasDescription rdf:type owl:DatatypeProperty ;
+    rdfs:domain safi:HeritageMonument ;
+    rdfs:range rdfs:Literal .
