@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .config import settings
-# from .routes import monuments
+from .routes import monuments
 
 app = FastAPI(title=settings.PROJECT_NAME)
 
@@ -15,7 +15,7 @@ app.add_middleware(
 )
 
 # We will include routers later in Step 2
-# app.include_router(monuments.router, prefix="/api/monuments", tags=["monuments"])
+app.include_router(monuments.router, prefix="/api/monuments", tags=["monuments"])
 
 @app.get("/")
 def read_root():
