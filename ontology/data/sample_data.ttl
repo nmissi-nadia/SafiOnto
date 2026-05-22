@@ -1,0 +1,18 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix safi: <http://example.org/safionto/> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+
+safi:KsarElBahar rdf:type safi:HeritageMonument ;
+    rdfs:label "Ksar El Bahar"@en ;
+    rdfs:label "قصر البحر"@ar ;
+    safi:hasDescription "A 16th-century Portuguese fortress located on the oceanfront of Safi."@en .
+
+safi:SafiCathedral rdf:type safi:HeritageMonument ;
+    rdfs:label "Portuguese Cathedral"@en ;
+    safi:hasDescription "Built in 1519, it is the first Gothic building in Africa."@en .
+
+safi:CollinePotiers rdf:type safi:HeritageMonument ;
+    rdfs:label "Potters' Hill"@en ;
+    safi:hasDescription "The historic center of traditional Safi pottery craftsmanship."@en .
