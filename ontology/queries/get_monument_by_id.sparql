@@ -1,0 +1,8 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX safi: <http://example.org/safionto/>
+
+SELECT ?name ?description WHERE {
+    # Replace the URI dynamically in your backend
+    <http://example.org/safionto/KsarElBahar> rdfs:label ?name .
+    OPTIONAL { <http://example.org/safionto/KsarElBahar> safi:hasDescription ?description }
+}
