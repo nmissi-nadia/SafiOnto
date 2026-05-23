@@ -1,63 +1,50 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix curr: <http://erlangen-crm.org/current/> .
-@prefix geos: <http://www.opengis.net/ont/geosparql#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix safionto: <http://example.org/safionto/> .
 
-# --- Classes de base (Ontologie) ---
-safionto:Historical_Building rdfs:subClassOf curr:E24_Physical_Human_Made_Thing .
-safionto:Fortress rdfs:subClassOf safionto:Historical_Building .
-safionto:PotteryWorkshop rdfs:subClassOf safionto:Historical_Building .
+# --- Arborescence des Classes (Basée sur l'image Protégé) ---
+safionto:Place rdf:type owl:Class .
+safionto:Historical_Place rdfs:subClassOf safionto:Place .
+safionto:Cultural_Place rdfs:subClassOf safionto:Place .
+safionto:Commercial_Place rdfs:subClassOf safionto:Place .
 
-# --- Ksar El Bahar (Forteresse Portugaise) ---
-safionto:KsarElBahar rdf:type safionto:Fortress ;
-    rdfs:label "Ksar El Bahar"@fr ;
-    safionto:has_image_url "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ksar_el-Bahr.jpg/640px-Ksar_el-Bahr.jpg" ;
-    safionto:hasDescription "Le Ksar El Bahar (Château de la mer) est une forteresse portugaise du XVIe siècle située sur le front de mer de Safi, offrant une vue imprenable sur l'océan Atlantique. Il a été construit pour protéger le port et la ville."@fr ;
-    geos:hasGeometry safionto:KsarElBahar_Geom ;
-    curr:P108i_was_produced_by safionto:KsarElBahar_Production .
+safionto:Fort rdfs:subClassOf safionto:Historical_Place .
+safionto:Pottery_Workshop rdfs:subClassOf safionto:Cultural_Place .
+safionto:Hotel rdfs:subClassOf safionto:Commercial_Place .
 
-# Géométrie WKT (Longitude Latitude)
-safionto:KsarElBahar_Geom rdf:type geos:Geometry ;
-    geos:hasSerialization "POINT(-9.243 32.298)"^^geos:wktLiteral .
+# --- Data Properties ---
+safionto:creationDate rdf:type owl:DatatypeProperty ; rdfs:range xsd:string .
+safionto:description rdf:type owl:DatatypeProperty ; rdfs:range xsd:string .
+safionto:imageURL rdf:type owl:DatatypeProperty ; rdfs:range xsd:anyURI .
+safionto:latitude rdf:type owl:DatatypeProperty ; rdfs:range xsd:float .
+safionto:longitude rdf:type owl:DatatypeProperty ; rdfs:range xsd:float .
+safionto:placeName rdf:type owl:DatatypeProperty ; rdfs:range xsd:string .
 
-# Evénement de production (Pour la date de fondation CIDOC-CRM)
-safionto:KsarElBahar_Production rdf:type curr:E12_Production ;
-    curr:P4_has_time-span safionto:KsarElBahar_TimeSpan .
-safionto:KsarElBahar_TimeSpan rdf:type curr:E52_Time-Span ;
-    curr:P82a_begin_of_the_begin "1508" .
+# --- Données (Ksar El Bahar) ---
+safionto:KsarElBahar rdf:type safionto:Fort ;
+    safionto:placeName "Ksar El Bahar" ;
+    safionto:creationDate "1508" ;
+    safionto:description "Le Ksar El Bahar (Château de la mer) est une forteresse portugaise du XVIe siècle située sur le front de mer de Safi." ;
+    safionto:imageURL "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ksar_el-Bahr.jpg/640px-Ksar_el-Bahr.jpg" ;
+    safionto:latitude 32.298 ;
+    safionto:longitude -9.243 .
 
+# --- Données (Colline des Potiers) ---
+safionto:CollinePotiers rdf:type safionto:Pottery_Workshop ;
+    safionto:placeName "Colline des Potiers" ;
+    safionto:creationDate "1800" ;
+    safionto:description "Le centre historique de l'artisanat de la poterie traditionnelle de Safi." ;
+    safionto:imageURL "https://www.moroccopedia.com/wp-content/uploads/2012/12/Safi-Pottery.jpg" ;
+    safionto:latitude 32.302 ;
+    safionto:longitude -9.231 .
 
-# --- Colline des Potiers (Atelier) ---
-safionto:CollinePotiers rdf:type safionto:PotteryWorkshop ;
-    rdfs:label "Colline des Potiers"@fr ;
-    safionto:has_image_url "https://www.moroccopedia.com/wp-content/uploads/2012/12/Safi-Pottery.jpg" ;
-    safionto:hasDescription "Le centre historique de l'artisanat de la poterie traditionnelle de Safi. Les artisans y perpétuent des techniques ancestrales de façonnage et de cuisson de l'argile locale."@fr ;
-    geos:hasGeometry safionto:CollinePotiers_Geom ;
-    curr:P108i_was_produced_by safionto:CollinePotiers_Production .
-
-safionto:CollinePotiers_Geom rdf:type geos:Geometry ;
-    geos:hasSerialization "POINT(-9.231 32.302)"^^geos:wktLiteral .
-
-safionto:CollinePotiers_Production rdf:type curr:E12_Production ;
-    curr:P4_has_time-span safionto:CollinePotiers_TimeSpan .
-safionto:CollinePotiers_TimeSpan rdf:type curr:E52_Time-Span ;
-    curr:P82a_begin_of_the_begin "1800" .
-
-# --- Hôtel Historique ---
-safionto:Hotel rdf:type rdfs:Class ; rdfs:subClassOf safionto:Historical_Building .
-
+# --- Données (Hôtel Atlantique) ---
 safionto:Hotel_Atlantique rdf:type safionto:Hotel ;
-    rdfs:label "Hôtel Atlantique"@fr ;
-    safionto:has_image_url "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Hotel_Atlantique_Safi.jpg/640px-Hotel_Atlantique_Safi.jpg" ;
-    safionto:hasDescription "Un hôtel emblématique de Safi, témoignage de l'architecture coloniale."@fr ;
-    geos:hasGeometry safionto:Hotel_Atlantique_Geom ;
-    curr:P108i_was_produced_by safionto:Hotel_Atlantique_Production .
-
-safionto:Hotel_Atlantique_Geom rdf:type geos:Geometry ;
-    geos:hasSerialization "POINT(-9.240 32.305)"^^geos:wktLiteral .
-
-safionto:Hotel_Atlantique_Production rdf:type curr:E12_Production ;
-    curr:P4_has_time-span safionto:Hotel_Atlantique_TimeSpan .
-safionto:Hotel_Atlantique_TimeSpan rdf:type curr:E52_Time-Span ;
-    curr:P82a_begin_of_the_begin "1930" .
+    safionto:placeName "Hôtel Atlantique" ;
+    safionto:creationDate "1930" ;
+    safionto:description "Un hôtel emblématique de Safi, témoignage de l'architecture coloniale." ;
+    safionto:imageURL "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Hotel_Atlantique_Safi.jpg/640px-Hotel_Atlantique_Safi.jpg" ;
+    safionto:latitude 32.305 ;
+    safionto:longitude -9.240 .

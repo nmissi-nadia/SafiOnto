@@ -26,16 +26,10 @@ const Map = ({ monuments, onSelectMonument }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {monuments.map((monument, idx) => {
-          if (!monument.coords) return null;
-          
-          const coordsMatch = monument.coords.match(/POINT\s*\(\s*([-\d.]+)\s+([-\d.]+)\s*\)/);
-          if (!coordsMatch) return null;
-          
-          const lng = parseFloat(coordsMatch[1]);
-          const lat = parseFloat(coordsMatch[2]);
+          if (monument.lat == null || monument.lng == null) return null;
           
           return (
-            <Marker key={idx} position={[lat, lng]} eventHandlers={{ click: () => onSelectMonument && onSelectMonument(monument) }}>
+            <Marker key={idx} position={[monument.lat, monument.lng]} eventHandlers={{ click: () => onSelectMonument && onSelectMonument(monument) }}>
               <Popup>
                 <div className="popup-content min-w-[200px]">
                   {monument.imageUrl && <img src={monument.imageUrl} alt={monument.name} className="w-full h-32 object-cover rounded mb-2" />}

@@ -23,8 +23,8 @@ const SearchBar = ({ searchQuery, setSearchQuery, category, setCategory }) => {
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="all">Toutes les catégories</option>
-          <option value="Fortress">Forteresse portugaise</option>
-          <option value="PotteryWorkshop">Atelier de poterie</option>
+          <option value="Fort">Forteresse historique</option>
+          <option value="Pottery_Workshop">Atelier de poterie</option>
           <option value="Hotel">Hôtel historique</option>
         </select>
       </div>

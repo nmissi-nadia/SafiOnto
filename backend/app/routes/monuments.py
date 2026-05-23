@@ -1,7 +1,18 @@
 from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel
+from typing import List
 from ..services.sparql_service import sparql_service
 
 router = APIRouter()
+
+class MonumentCreate(BaseModel):
+    name: str
+    type: str
+    year: str
+    description: str
+    imageUrl: str
+    lat: float
+    lng: float
 
 @router.get("/map")
 def get_map_data():
@@ -18,5 +29,13 @@ def get_monument_detail(uri: str):
         if not details:
             raise HTTPException(status_code=404, detail="Monument non trouvé")
         return {"status": "success", "data": details}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@router.post("/")
+def create_monument(monument: MonumentCreate):
+    try:
+        result = sparql_service.insert_monument(monument.dict())
+        return {"status": "success", "data": result}
     except Exception as e:
         return {"status": "error", "message": str(e)}
