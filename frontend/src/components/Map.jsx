@@ -25,11 +25,29 @@ const Map = ({ monuments, onSelectMonument }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position} eventHandlers={{ click: () => onSelectMonument && onSelectMonument({name: "Safi City Center", description: "Placeholder for Safi Center", uri: "http://example.org/safionto/Safi"}) }}>
-          <Popup>
-            Safi City Center
-          </Popup>
-        </Marker>
+        {monuments.map((monument, idx) => {
+          if (!monument.coords) return null;
+          
+          const coordsMatch = monument.coords.match(/POINT\s*\(\s*([-\d.]+)\s+([-\d.]+)\s*\)/);
+          if (!coordsMatch) return null;
+          
+          const lng = parseFloat(coordsMatch[1]);
+          const lat = parseFloat(coordsMatch[2]);
+          
+          return (
+            <Marker key={idx} position={[lat, lng]} eventHandlers={{ click: () => onSelectMonument && onSelectMonument(monument) }}>
+              <Popup>
+                <div className="popup-content min-w-[200px]">
+                  {monument.imageUrl && <img src={monument.imageUrl} alt={monument.name} className="w-full h-32 object-cover rounded mb-2" />}
+                  <h3 className="font-bold text-lg text-brand-dark">{monument.name}</h3>
+                  <p className="text-sm"><b>Type :</b> {monument.type}</p>
+                  <p className="text-sm"><b>Fondation :</b> {monument.year}</p>
+                  <a href={`/monument.html?uri=${encodeURIComponent(monument.uri)}`} className="text-xs text-blue-600 hover:underline mt-2 inline-block">Voir la fiche détaillée</a>
+                </div>
+              </Popup>
+            </Marker>
+          );
+        })}
       </MapContainer>
     </div>
   );

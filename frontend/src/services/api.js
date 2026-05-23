@@ -2,12 +2,12 @@ const API_BASE_URL = 'http://localhost:8000/api';
 
 export const fetchMonuments = async () => {
     try {
-        const response = await fetch(`${API_BASE_URL}/monuments`);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+        const response = await fetch(`${API_BASE_URL}/monuments/map`);
+        const result = await response.json();
+        if (result.status === "success") {
+            return result.data;
         }
-        const data = await response.json();
-        return data.data;
+        return [];
     } catch (error) {
         console.error("Failed to fetch monuments:", error);
         return [];

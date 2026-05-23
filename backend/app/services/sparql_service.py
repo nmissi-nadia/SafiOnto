@@ -15,20 +15,41 @@ class SPARQLService:
             # Here we could raise a custom exception that our FastAPI middleware intercepts
             raise Exception(f"Failed to execute SPARQL query: {str(e)}")
 
-    def get_all_monuments(self):
-        # A simple query to get monuments based on our future ontology
+    def get_map_markers(self):
         query = """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-        PREFIX safi: <http://example.org/safionto/>
-        PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+        PREFIX curr: <http://erlangen-crm.org/current/>
+        PREFIX geos: <http://www.opengis.net/ont/geosparql#>
+        PREFIX safionto: <http://example.org/safionto/> 
         
-        SELECT ?monument ?name ?description WHERE {
-            ?monument rdf:type crm:E24_Physical_Human_Made_Thing .
-            OPTIONAL { ?monument rdfs:label ?name }
-            OPTIONAL { ?monument safi:hasDescription ?description }
+        SELECT ?monument ?name ?type ?year ?imageUrl ?coords
+        WHERE {
+          ?monument rdf:type ?type .
+          OPTIONAL { ?monument rdfs:label ?name . }
+          OPTIONAL { ?monument safionto:has_image_url ?imageUrl . }
+          OPTIONAL { 
+             ?monument geos:hasGeometry ?geom .
+             ?geom geos:hasSerialization ?coords .
+          }
+          OPTIONAL {
+            ?monument curr:P108i_was_produced_by ?production .
+            ?production curr:P4_has_time-span ?timespan .
+            ?timespan curr:P82a_begin_of_the_begin ?year .
+          }
         }
         """
-        return self.execute_query(query)
+        results = self.execute_query(query)
+        markers = []
+        for result in results:
+            markers.append({
+                "uri": result.get("monument", {}).get("value"),
+                "name": result.get("name", {}).get("value", "Inconnu"),
+                "type": result.get("type", {}).get("value", "").split("#")[-1].split("/")[-1],
+                "year": result.get("year", {}).get("value", "Date inconnue"),
+                "imageUrl": result.get("imageUrl", {}).get("value"),
+                "coords": result.get("coords", {}).get("value")
+            })
+        return markers
 
 sparql_service = SPARQLService()

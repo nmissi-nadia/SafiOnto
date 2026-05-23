@@ -47,8 +47,9 @@ Deux méthodes s'offrent à vous :
 
 **Méthode 1 : Via l'interface web de Fuseki (Recommandée)**
 1. Rendez-vous sur [http://localhost:3030](http://localhost:3030) et connectez-vous.
-2. Allez dans l'onglet **Manage datasets** puis sélectionnez le dataset `/safi`.
-3. Cliquez sur **Upload data**.
+2. Allez dans l'onglet **manage datasets** et cliquez sur **add new dataset**.
+3. Nommez le dataset `safi`, choisissez le type "Persistent", et validez.
+4. Sélectionnez ensuite votre nouveau dataset `/safi`, puis cliquez sur **Upload data**.
 4. Sélectionnez le fichier `ontology/data/sample_data.ttl` et validez.
 
 **Méthode 2 : Via des requêtes SPARQL**

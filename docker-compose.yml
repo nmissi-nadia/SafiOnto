@@ -9,7 +9,6 @@ services:
       - ADMIN_PASSWORD=admin
     volumes:
       - fuseki_data:/fuseki
-    command: --update --loc=/fuseki/databases/safi /safi
 
   backend:
     build: ./backend
