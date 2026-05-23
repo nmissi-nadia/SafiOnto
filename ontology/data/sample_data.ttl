@@ -1,18 +1,63 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix safi: <http://example.org/safionto/> .
-@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix curr: <http://erlangen-crm.org/current/> .
+@prefix geos: <http://www.opengis.net/ont/geosparql#> .
+@prefix safionto: <http://example.org/safionto/> .
 
-safi:KsarElBahar rdf:type safi:HeritageMonument ;
-    rdfs:label "Ksar El Bahar"@en ;
-    rdfs:label "قصر البحر"@ar ;
-    safi:hasDescription "A 16th-century Portuguese fortress located on the oceanfront of Safi."@en .
+# --- Classes de base (Ontologie) ---
+safionto:Historical_Building rdfs:subClassOf curr:E24_Physical_Human_Made_Thing .
+safionto:Fortress rdfs:subClassOf safionto:Historical_Building .
+safionto:PotteryWorkshop rdfs:subClassOf safionto:Historical_Building .
 
-safi:SafiCathedral rdf:type safi:HeritageMonument ;
-    rdfs:label "Portuguese Cathedral"@en ;
-    safi:hasDescription "Built in 1519, it is the first Gothic building in Africa."@en .
+# --- Ksar El Bahar (Forteresse Portugaise) ---
+safionto:KsarElBahar rdf:type safionto:Fortress ;
+    rdfs:label "Ksar El Bahar"@fr ;
+    safionto:has_image_url "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ksar_el-Bahr.jpg/640px-Ksar_el-Bahr.jpg" ;
+    safionto:hasDescription "Le Ksar El Bahar (Château de la mer) est une forteresse portugaise du XVIe siècle située sur le front de mer de Safi, offrant une vue imprenable sur l'océan Atlantique. Il a été construit pour protéger le port et la ville."@fr ;
+    geos:hasGeometry safionto:KsarElBahar_Geom ;
+    curr:P108i_was_produced_by safionto:KsarElBahar_Production .
 
-safi:CollinePotiers rdf:type safi:HeritageMonument ;
-    rdfs:label "Potters' Hill"@en ;
-    safi:hasDescription "The historic center of traditional Safi pottery craftsmanship."@en .
+# Géométrie WKT (Longitude Latitude)
+safionto:KsarElBahar_Geom rdf:type geos:Geometry ;
+    geos:hasSerialization "POINT(-9.243 32.298)"^^geos:wktLiteral .
+
+# Evénement de production (Pour la date de fondation CIDOC-CRM)
+safionto:KsarElBahar_Production rdf:type curr:E12_Production ;
+    curr:P4_has_time-span safionto:KsarElBahar_TimeSpan .
+safionto:KsarElBahar_TimeSpan rdf:type curr:E52_Time-Span ;
+    curr:P82a_begin_of_the_begin "1508" .
+
+
+# --- Colline des Potiers (Atelier) ---
+safionto:CollinePotiers rdf:type safionto:PotteryWorkshop ;
+    rdfs:label "Colline des Potiers"@fr ;
+    safionto:has_image_url "https://www.moroccopedia.com/wp-content/uploads/2012/12/Safi-Pottery.jpg" ;
+    safionto:hasDescription "Le centre historique de l'artisanat de la poterie traditionnelle de Safi. Les artisans y perpétuent des techniques ancestrales de façonnage et de cuisson de l'argile locale."@fr ;
+    geos:hasGeometry safionto:CollinePotiers_Geom ;
+    curr:P108i_was_produced_by safionto:CollinePotiers_Production .
+
+safionto:CollinePotiers_Geom rdf:type geos:Geometry ;
+    geos:hasSerialization "POINT(-9.231 32.302)"^^geos:wktLiteral .
+
+safionto:CollinePotiers_Production rdf:type curr:E12_Production ;
+    curr:P4_has_time-span safionto:CollinePotiers_TimeSpan .
+safionto:CollinePotiers_TimeSpan rdf:type curr:E52_Time-Span ;
+    curr:P82a_begin_of_the_begin "1800" .
+
+# --- Hôtel Historique ---
+safionto:Hotel rdf:type rdfs:Class ; rdfs:subClassOf safionto:Historical_Building .
+
+safionto:Hotel_Atlantique rdf:type safionto:Hotel ;
+    rdfs:label "Hôtel Atlantique"@fr ;
+    safionto:has_image_url "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Hotel_Atlantique_Safi.jpg/640px-Hotel_Atlantique_Safi.jpg" ;
+    safionto:hasDescription "Un hôtel emblématique de Safi, témoignage de l'architecture coloniale."@fr ;
+    geos:hasGeometry safionto:Hotel_Atlantique_Geom ;
+    curr:P108i_was_produced_by safionto:Hotel_Atlantique_Production .
+
+safionto:Hotel_Atlantique_Geom rdf:type geos:Geometry ;
+    geos:hasSerialization "POINT(-9.240 32.305)"^^geos:wktLiteral .
+
+safionto:Hotel_Atlantique_Production rdf:type curr:E12_Production ;
+    curr:P4_has_time-span safionto:Hotel_Atlantique_TimeSpan .
+safionto:Hotel_Atlantique_TimeSpan rdf:type curr:E52_Time-Span ;
+    curr:P82a_begin_of_the_begin "1930" .
