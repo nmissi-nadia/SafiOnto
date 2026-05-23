@@ -10,3 +10,13 @@ def get_map_data():
         return {"status": "success", "data": markers}
     except Exception as e:
         return {"status": "error", "message": str(e)}
+
+@router.get("/detail")
+def get_monument_detail(uri: str):
+    try:
+        details = sparql_service.get_monument_details(uri)
+        if not details:
+            raise HTTPException(status_code=404, detail="Monument non trouvé")
+        return {"status": "success", "data": details}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}

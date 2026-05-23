@@ -13,3 +13,17 @@ export const fetchMonuments = async () => {
         return [];
     }
 };
+
+export const getMonumentByUri = async (uri) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/monuments/detail?uri=${encodeURIComponent(uri)}`);
+        const result = await response.json();
+        if (result.status === "success") {
+            return result.data;
+        }
+        return null;
+    } catch (error) {
+        console.error("Failed to fetch monument detail:", error);
+        return null;
+    }
+};
