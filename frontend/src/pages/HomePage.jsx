@@ -86,6 +86,93 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Famous Places Section */}
+      <section className="py-24 px-8 max-w-7xl mx-auto bg-white rounded-3xl shadow-sm border border-gray-100 my-12">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-extrabold text-gray-900 mb-6">Les lieux les plus célèbres de Safi</h2>
+          <div className="w-24 h-1.5 bg-amber-500 mx-auto rounded-full"></div>
+          <p className="mt-6 text-gray-600 text-lg max-w-2xl mx-auto">
+            Découvrez une sélection des monuments incontournables qui forgent l'identité historique et culturelle de la ville.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* Place 1 */}
+          <div className="rounded-2xl overflow-hidden shadow-lg group cursor-pointer border border-gray-100 hover:shadow-2xl transition-all duration-300">
+            <div className="h-64 overflow-hidden relative">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ksar_el-Bahr.jpg/640px-Ksar_el-Bahr.jpg" alt="Ksar El Bahar" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute top-4 left-4 bg-brand text-white text-xs font-bold px-3 py-1 rounded-full">Forteresse</div>
+            </div>
+            <div className="p-6 bg-white relative z-10">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Ksar El Bahar</h3>
+              <p className="text-gray-600 mb-4 line-clamp-3">
+                Le Château de la Mer, joyau de l'architecture portugaise du XVIe siècle surplombant majestueusement l'océan Atlantique.
+              </p>
+              <Link to="/map" className="text-brand font-bold hover:text-brand-dark flex items-center gap-1 group-hover:gap-2 transition-all">
+                Explorer <span className="text-xl">→</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Place 2 */}
+          <div className="rounded-2xl overflow-hidden shadow-lg group cursor-pointer border border-gray-100 hover:shadow-2xl transition-all duration-300">
+            <div className="h-64 overflow-hidden relative">
+              <img src="https://www.moroccopedia.com/wp-content/uploads/2012/12/Safi-Pottery.jpg" alt="Colline des Potiers" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full">Artisanat</div>
+            </div>
+            <div className="p-6 bg-white relative z-10">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">La Colline des Potiers</h3>
+              <p className="text-gray-600 mb-4 line-clamp-3">
+                Le cœur battant de l'artisanat safiot, où les maîtres potiers perpétuent un savoir-faire ancestral reconnu mondialement.
+              </p>
+              <Link to="/map" className="text-emerald-600 font-bold hover:text-emerald-800 flex items-center gap-1 group-hover:gap-2 transition-all">
+                Explorer <span className="text-xl">→</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Place 3 */}
+          <div className="rounded-2xl overflow-hidden shadow-lg group cursor-pointer border border-gray-100 hover:shadow-2xl transition-all duration-300">
+            <div className="h-64 overflow-hidden relative">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Safi_Medina.jpg/640px-Safi_Medina.jpg" alt="La Médina de Safi" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute top-4 left-4 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full">Centre Historique</div>
+            </div>
+            <div className="p-6 bg-white relative z-10">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">L'Ancienne Médina</h3>
+              <p className="text-gray-600 mb-4 line-clamp-3">
+                Un dédale de ruelles chargées d'histoire, abritant des souks colorés, des remparts séculaires et une ambiance authentique.
+              </p>
+              <Link to="/map" className="text-amber-600 font-bold hover:text-amber-800 flex items-center gap-1 group-hover:gap-2 transition-all">
+                Explorer <span className="text-xl">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="bg-brand text-white py-20 mt-12 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="max-w-7xl mx-auto px-8 relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <div className="text-5xl font-extrabold mb-2">150+</div>
+            <div className="text-brand-light text-lg font-medium uppercase tracking-wider">Monuments</div>
+          </div>
+          <div>
+            <div className="text-5xl font-extrabold mb-2">14</div>
+            <div className="text-brand-light text-lg font-medium uppercase tracking-wider">Catégories Protégé</div>
+          </div>
+          <div>
+            <div className="text-5xl font-extrabold mb-2">5000+</div>
+            <div className="text-brand-light text-lg font-medium uppercase tracking-wider">Triplets RDF</div>
+          </div>
+          <div>
+            <div className="text-5xl font-extrabold mb-2">100%</div>
+            <div className="text-brand-light text-lg font-medium uppercase tracking-wider">Open Data</div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer id="contact" className="bg-gray-900 text-gray-400 py-16 mt-auto">
         <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
