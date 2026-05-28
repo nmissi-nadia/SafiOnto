@@ -173,6 +173,49 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* How it Works Section (Animated) */}
+      <section className="py-24 px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-extrabold text-gray-900 mb-6">Comment ça marche ?</h2>
+          <div className="w-24 h-1.5 bg-brand mx-auto rounded-full mb-8"></div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          {/* Ligne connectrice animée (visible sur Desktop) */}
+          <div className="hidden md:block absolute top-1/2 left-[10%] right-[10%] h-1 bg-gradient-to-r from-brand-light via-brand to-emerald-500 rounded-full opacity-30"></div>
+
+          {/* Etape 1 */}
+          <div className="relative flex flex-col items-center group">
+            <div className="w-20 h-20 bg-white rounded-full border-4 border-brand flex items-center justify-center z-10 shadow-[0_0_15px_rgba(0,100,200,0.4)] group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 mb-6 relative overflow-hidden">
+              <div className="absolute inset-0 bg-brand/20 group-hover:animate-ping rounded-full"></div>
+              <Search className="text-brand relative z-10" size={32} />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand transition-colors">1. Recherchez</h3>
+            <p className="text-center text-gray-600">Utilisez notre moteur de recherche sémantique pour trouver un monument ou filtrer par catégorie historique.</p>
+          </div>
+
+          {/* Etape 2 */}
+          <div className="relative flex flex-col items-center group mt-12 md:mt-0">
+            <div className="w-20 h-20 bg-white rounded-full border-4 border-amber-500 flex items-center justify-center z-10 shadow-[0_0_15px_rgba(245,158,11,0.4)] group-hover:scale-125 group-hover:-rotate-12 transition-all duration-500 mb-6 relative overflow-hidden">
+              <div className="absolute inset-0 bg-amber-500/20 group-hover:animate-ping rounded-full"></div>
+              <Map className="text-amber-500 relative z-10" size={32} />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-amber-500 transition-colors">2. Explorez</h3>
+            <p className="text-center text-gray-600">Visualisez les résultats sur la carte interactive et cliquez sur les marqueurs pour voir les détails géographiques.</p>
+          </div>
+
+          {/* Etape 3 */}
+          <div className="relative flex flex-col items-center group mt-12 md:mt-0">
+            <div className="w-20 h-20 bg-white rounded-full border-4 border-emerald-500 flex items-center justify-center z-10 shadow-[0_0_15px_rgba(16,185,129,0.4)] group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 mb-6 relative overflow-hidden">
+              <div className="absolute inset-0 bg-emerald-500/20 group-hover:animate-ping rounded-full"></div>
+              <Database className="text-emerald-500 relative z-10" size={32} />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-emerald-500 transition-colors">3. Enrichissez</h3>
+            <p className="text-center text-gray-600">En mode expert, alimentez l'ontologie en ajoutant de nouveaux lieux directement dans la base de graphes.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer id="contact" className="bg-gray-900 text-gray-400 py-16 mt-auto">
         <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
