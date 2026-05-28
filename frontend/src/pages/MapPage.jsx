@@ -25,7 +25,9 @@ const MapPage = () => {
   // Local Frontend Filtering
   const filteredMonuments = monuments.filter(monument => {
     const matchCategory = category === 'all' || monument.type === category;
-    const matchSearch = monument.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const safeName = monument.name || '';
+    const safeQuery = searchQuery || '';
+    const matchSearch = safeName.toLowerCase().includes(safeQuery.toLowerCase());
     return matchCategory && matchSearch;
   });
 
