@@ -41,6 +41,13 @@ const HomePage = () => {
             </Link>
           </div>
         </div>
+
+        {/* Animated Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-8 h-14 border-2 border-white/60 rounded-full flex justify-center p-2 backdrop-blur-sm shadow-lg">
+            <div className="w-1.5 h-3 bg-white rounded-full animate-pulse"></div>
+          </div>
+        </div>
       </section>
 
       {/* Features Section */}
