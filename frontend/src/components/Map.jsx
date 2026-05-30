@@ -31,12 +31,17 @@ const Map = ({ monuments, onSelectMonument }) => {
           return (
             <Marker key={idx} position={[monument.lat, monument.lng]} eventHandlers={{ click: () => onSelectMonument && onSelectMonument(monument) }}>
               <Popup>
-                <div className="popup-content min-w-[200px]">
+                <div className="popup-content min-w-[200px] max-w-[250px]">
                   {monument.imageUrl && <img src={monument.imageUrl} alt={monument.name} className="w-full h-32 object-cover rounded mb-2" />}
-                  <h3 className="font-bold text-lg text-brand-dark">{monument.name}</h3>
-                  <p className="text-sm"><b>Type :</b> {monument.type}</p>
-                  <p className="text-sm"><b>Fondation :</b> {monument.year}</p>
-                  <a href={`/monument.html?uri=${encodeURIComponent(monument.uri)}`} className="text-xs text-blue-600 hover:underline mt-2 inline-block">Voir la fiche détaillée</a>
+                  <h3 className="font-bold text-lg text-brand-dark mb-1">{monument.name}</h3>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-xs bg-brand-light text-white px-2 py-1 rounded-full w-fit">{monument.type}</span>
+                    <p className="text-sm mt-1"><b>Fondation :</b> {monument.year}</p>
+                    {monument.description && (
+                      <p className="text-xs text-gray-600 italic mt-1 line-clamp-3">"{monument.description}"</p>
+                    )}
+                  </div>
+                  <a href={`/monument.html?uri=${encodeURIComponent(monument.uri)}`} className="text-xs text-blue-600 hover:underline mt-2 inline-block font-medium">Voir la fiche détaillée &rarr;</a>
                 </div>
               </Popup>
             </Marker>

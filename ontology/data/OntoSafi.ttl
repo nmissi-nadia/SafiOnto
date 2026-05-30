@@ -1,0 +1,1429 @@
+@prefix : <http://ontologie.safi.ma/onto#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix safi: <http://ontologie.safi.ma/onto#> .
+@prefix schema: <https://schema.org/> .
+@base <http://ontologie.safi.ma/onto> .
+
+<http://ontologie.safi.ma/onto> rdf:type owl:Ontology ;
+                                 dc:creator "Projet Ontologie Safi" ;
+                                 dc:description "Ontologie formelle décrivant les lieux, institutions, services et entités de la ville de Safi"@fr ;
+                                 dc:title "Ontologie de la Ville de Safi (Maroc)"@fr ;
+                                 owl:versionInfo "1.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#gYear
+xsd:gYear rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://ontologie.safi.ma/onto#aConstruitPar
+safi:aConstruitPar rdf:type owl:ObjectProperty ;
+                   rdfs:domain safi:LieuGéographique ;
+                   rdfs:range safi:Acteur ;
+                   rdfs:label "a été construit par"@fr .
+
+
+###  http://ontologie.safi.ma/onto#aSuccédéÀ
+safi:aSuccédéÀ rdf:type owl:ObjectProperty ;
+               rdfs:domain safi:LieuGéographique ;
+               rdfs:range safi:LieuGéographique ;
+               rdfs:label "a succédé à (sur le même site)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#aÉtéRestauréPar
+safi:aÉtéRestauréPar rdf:type owl:ObjectProperty ;
+                     rdfs:domain safi:LieuGéographique ;
+                     rdfs:range safi:Acteur ;
+                     rdfs:label "a été restauré par"@fr .
+
+
+###  http://ontologie.safi.ma/onto#estLiéHistoriquementÀ
+safi:estLiéHistoriquementÀ rdf:type owl:ObjectProperty ,
+                                    owl:SymmetricProperty ;
+                           rdfs:domain safi:LieuGéographique ;
+                           rdfs:range safi:LieuGéographique ;
+                           rdfs:label "est lié historiquement à"@fr .
+
+
+###  http://ontologie.safi.ma/onto#estPartieIntégranteDe
+safi:estPartieIntégranteDe rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf safi:estLiéHistoriquementÀ ;
+                           rdfs:domain safi:LieuGéographique ;
+                           rdfs:range safi:LieuGéographique ;
+                           rdfs:label "est partie intégrante de"@fr .
+
+
+###  http://ontologie.safi.ma/onto#estSituéDans
+safi:estSituéDans rdf:type owl:ObjectProperty ;
+                  rdfs:domain safi:LieuGéographique ;
+                  rdfs:range safi:QuartierZone ;
+                  rdfs:label "est situé dans"@fr .
+
+
+###  http://ontologie.safi.ma/onto#gèreParInstitution
+safi:gèreParInstitution rdf:type owl:ObjectProperty ;
+                        rdfs:domain safi:LieuGéographique ;
+                        rdfs:range safi:Acteur ;
+                        rdfs:label "géré par institution"@fr .
+
+
+###  http://ontologie.safi.ma/onto#offre
+safi:offre rdf:type owl:ObjectProperty ;
+           rdfs:domain safi:LieuGéographique ;
+           rdfs:range safi:Service ;
+           rdfs:label "offre"@fr .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://ontologie.safi.ma/onto#adresse
+safi:adresse rdf:type owl:DatatypeProperty ;
+             rdfs:domain safi:LieuGéographique ;
+             rdfs:range xsd:string ;
+             rdfs:label "adresse"@fr .
+
+
+###  http://ontologie.safi.ma/onto#annéeClassementUNESCO
+safi:annéeClassementUNESCO rdf:type owl:DatatypeProperty ;
+                           rdfs:domain safi:LieuGéographique ;
+                           rdfs:range xsd:gYear ;
+                           rdfs:label "année classement UNESCO"@fr .
+
+
+###  http://ontologie.safi.ma/onto#annéeConstruction
+safi:annéeConstruction rdf:type owl:DatatypeProperty ;
+                       rdfs:domain safi:LieuGéographique ;
+                       rdfs:range xsd:string ;
+                       rdfs:label "année de construction"@fr .
+
+
+###  http://ontologie.safi.ma/onto#classéUNESCO
+safi:classéUNESCO rdf:type owl:DatatypeProperty ;
+                  rdfs:domain safi:LieuGéographique ;
+                  rdfs:range xsd:boolean ;
+                  rdfs:label "classé UNESCO"@fr .
+
+
+###  http://ontologie.safi.ma/onto#cuisineProposée
+safi:cuisineProposée rdf:type owl:DatatypeProperty ;
+                     rdfs:domain safi:Restauration ;
+                     rdfs:range xsd:string ;
+                     rdfs:label "type de cuisine proposée"@fr .
+
+
+###  http://ontologie.safi.ma/onto#dernièreRestauration
+safi:dernièreRestauration rdf:type owl:DatatypeProperty ;
+                          rdfs:domain safi:LieuGéographique ;
+                          rdfs:range xsd:string ;
+                          rdfs:label "dernière restauration"@fr .
+
+
+###  http://ontologie.safi.ma/onto#horaires
+safi:horaires rdf:type owl:DatatypeProperty ;
+              rdfs:domain safi:LieuGéographique ;
+              rdfs:range xsd:string ;
+              rdfs:label "horaires d'ouverture"@fr .
+
+
+###  http://ontologie.safi.ma/onto#latitude
+safi:latitude rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf geo:lat ;
+              rdfs:domain safi:LieuGéographique ;
+              rdfs:range xsd:decimal ;
+              rdfs:label "latitude"@fr .
+
+
+###  http://ontologie.safi.ma/onto#livraison
+safi:livraison rdf:type owl:DatatypeProperty ;
+               rdfs:domain safi:Restauration ;
+               rdfs:range xsd:boolean ;
+               rdfs:label "livraison disponible"@fr .
+
+
+###  http://ontologie.safi.ma/onto#longitude
+safi:longitude rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf geo:long ;
+               rdfs:domain safi:LieuGéographique ;
+               rdfs:range xsd:decimal ;
+               rdfs:label "longitude"@fr .
+
+
+###  http://ontologie.safi.ma/onto#noteMoyenne
+safi:noteMoyenne rdf:type owl:DatatypeProperty ;
+                 rdfs:domain safi:Restauration ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "note moyenne (avis)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#prixMoyenNuit
+safi:prixMoyenNuit rdf:type owl:DatatypeProperty ;
+                   rdfs:domain safi:Hébergement ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "prix moyen par nuit (DH)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#prixMoyenRepas
+safi:prixMoyenRepas rdf:type owl:DatatypeProperty ;
+                    rdfs:domain safi:Restauration ;
+                    rdfs:range xsd:string ;
+                    rdfs:label "prix moyen par repas (DH)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#siteWeb
+safi:siteWeb rdf:type owl:DatatypeProperty ;
+             rdfs:domain safi:LieuGéographique ;
+             rdfs:range xsd:anyURI ;
+             rdfs:label "site web"@fr .
+
+
+###  http://ontologie.safi.ma/onto#spécialités
+safi:spécialités rdf:type owl:DatatypeProperty ;
+                 rdfs:domain safi:LieuGéographique ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "spécialités / services"@fr .
+
+
+###  http://ontologie.safi.ma/onto#statutNational
+safi:statutNational rdf:type owl:DatatypeProperty ;
+                    rdfs:domain safi:LieuGéographique ;
+                    rdfs:range xsd:string ;
+                    rdfs:label "statut national"@fr .
+
+
+###  http://ontologie.safi.ma/onto#typeGestion
+safi:typeGestion rdf:type owl:DatatypeProperty ;
+                 rdfs:domain safi:LieuGéographique ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "type de gestion (public/privé/mixte)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#téléphone
+safi:téléphone rdf:type owl:DatatypeProperty ;
+               rdfs:domain safi:LieuGéographique ;
+               rdfs:range xsd:string ;
+               rdfs:label "numéro de téléphone"@fr .
+
+
+###  http://ontologie.safi.ma/onto#étoiles
+safi:étoiles rdf:type owl:DatatypeProperty ;
+             rdfs:domain safi:Hébergement ;
+             rdfs:range xsd:integer ;
+             rdfs:label "nombre d'étoiles"@fr .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
+geo:lat rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#long
+geo:long rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ontologie.safi.ma/onto#Acteur
+safi:Acteur rdf:type owl:Class ;
+            rdfs:subClassOf safi:EntitéSafi ;
+            rdfs:comment "Personne morale ou physique impliquée dans la construction, gestion ou restauration d'un lieu"@fr ;
+            rdfs:label "Acteur"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Banque
+safi:Banque rdf:type owl:Class ;
+            rdfs:subClassOf safi:ServiceInstitution ;
+            rdfs:label "Banque"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Bibliothèque
+safi:Bibliothèque rdf:type owl:Class ;
+                  rdfs:subClassOf safi:CultureLoisirs .
+
+
+###  http://ontologie.safi.ma/onto#CaféRestaurant
+safi:CaféRestaurant rdf:type owl:Class ;
+                    rdfs:subClassOf safi:Restauration ;
+                    rdfs:label "Café / Restaurant"@fr .
+
+
+###  http://ontologie.safi.ma/onto#CentreArts
+safi:CentreArts rdf:type owl:Class ;
+                rdfs:subClassOf safi:CultureLoisirs ;
+                rdfs:label "Centre Arts et Culture"@fr .
+
+
+###  http://ontologie.safi.ma/onto#CollectifArtisanal
+safi:CollectifArtisanal rdf:type owl:Class ;
+                        rdfs:subClassOf safi:Acteur ;
+                        rdfs:label "Collectif Artisanal"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Collège
+safi:Collège rdf:type owl:Class ;
+             rdfs:subClassOf safi:Enseignement ;
+             rdfs:label "Collège"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Commerce
+safi:Commerce rdf:type owl:Class ;
+              rdfs:subClassOf safi:LieuGéographique ;
+              rdfs:label "Commerce"@fr .
+
+
+###  http://ontologie.safi.ma/onto#ConservatoireMusique
+safi:ConservatoireMusique rdf:type owl:Class ;
+                          rdfs:subClassOf safi:Enseignement ;
+                          rdfs:label "Conservatoire de Musique"@fr .
+
+
+###  http://ontologie.safi.ma/onto#CultureLoisirs
+safi:CultureLoisirs rdf:type owl:Class ;
+                    rdfs:subClassOf safi:LieuGéographique ;
+                    rdfs:label "Culture et Loisirs"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Dynastie
+safi:Dynastie rdf:type owl:Class ;
+              rdfs:subClassOf safi:Acteur ;
+              rdfs:label "Dynastie"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Enseignement
+safi:Enseignement rdf:type owl:Class ;
+                  rdfs:subClassOf safi:LieuGéographique ;
+                  rdfs:label "Établissement d'Enseignement"@fr .
+
+
+###  http://ontologie.safi.ma/onto#EntitéSafi
+safi:EntitéSafi rdf:type owl:Class ;
+                rdfs:comment "Classe racine de toutes les entités de l'ontologie de Safi"@fr ;
+                rdfs:label "Entité Safi"@fr .
+
+
+###  http://ontologie.safi.ma/onto#EntreprisePrivée
+safi:EntreprisePrivée rdf:type owl:Class ;
+                      rdfs:subClassOf safi:Acteur ;
+                      rdfs:label "Entreprise Privée"@fr .
+
+
+###  http://ontologie.safi.ma/onto#EntreprisePublique
+safi:EntreprisePublique rdf:type owl:Class ;
+                        rdfs:subClassOf safi:ServiceInstitution ;
+                        rdfs:label "Entreprise Publique"@fr .
+
+
+###  http://ontologie.safi.ma/onto#EquipementSportif
+safi:EquipementSportif rdf:type owl:Class ;
+                       rdfs:subClassOf safi:CultureLoisirs ;
+                       rdfs:label "Équipement Sportif"@fr .
+
+
+###  http://ontologie.safi.ma/onto#EspacePublic
+safi:EspacePublic rdf:type owl:Class ;
+                  rdfs:subClassOf safi:CultureLoisirs ;
+                  rdfs:label "Espace Public / Promenade"@fr .
+
+
+###  http://ontologie.safi.ma/onto#FormationArtisanale
+safi:FormationArtisanale rdf:type owl:Class ;
+                         rdfs:subClassOf safi:Enseignement ;
+                         rdfs:label "Formation Artisanale"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Forteresse
+safi:Forteresse rdf:type owl:Class ;
+                rdfs:subClassOf safi:PatrimoineMilitaire ;
+                rdfs:label "Forteresse"@fr .
+
+
+###  http://ontologie.safi.ma/onto#GareFerroviaire
+safi:GareFerroviaire rdf:type owl:Class ;
+                     rdfs:subClassOf safi:Transport ;
+                     rdfs:label "Gare Ferroviaire"@fr .
+
+
+###  http://ontologie.safi.ma/onto#GareRoutière
+safi:GareRoutière rdf:type owl:Class ;
+                  rdfs:subClassOf safi:Transport .
+
+
+###  http://ontologie.safi.ma/onto#GrandeSurface
+safi:GrandeSurface rdf:type owl:Class ;
+                   rdfs:subClassOf safi:Commerce ;
+                   rdfs:label "Grande Surface / Centre Commercial"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Hébergement
+safi:Hébergement rdf:type owl:Class ;
+                 rdfs:subClassOf safi:LieuGéographique ;
+                 rdfs:label "Hébergement"@fr .
+
+
+###  http://ontologie.safi.ma/onto#HôpitalPrivé
+safi:HôpitalPrivé rdf:type owl:Class ;
+                  rdfs:subClassOf safi:Santé ;
+                  rdfs:label "Hôpital Privé"@fr .
+
+
+###  http://ontologie.safi.ma/onto#HôpitalPublic
+safi:HôpitalPublic rdf:type owl:Class ;
+                   rdfs:subClassOf safi:Santé ;
+                   rdfs:label "Hôpital Public"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Hôtel
+safi:Hôtel rdf:type owl:Class ;
+           rdfs:subClassOf safi:Hébergement ;
+           rdfs:label "Hôtel"@fr .
+
+
+###  http://ontologie.safi.ma/onto#InstitutionAdministrative
+safi:InstitutionAdministrative rdf:type owl:Class ;
+                               rdfs:subClassOf safi:ServiceInstitution ;
+                               rdfs:label "Institution Administrative"@fr .
+
+
+###  http://ontologie.safi.ma/onto#InstitutionJudiciaire
+safi:InstitutionJudiciaire rdf:type owl:Class ;
+                           rdfs:subClassOf safi:ServiceInstitution ;
+                           rdfs:label "Institution Judiciaire"@fr .
+
+
+###  http://ontologie.safi.ma/onto#InstitutionSécurité
+safi:InstitutionSécurité rdf:type owl:Class ;
+                         rdfs:subClassOf safi:ServiceInstitution ;
+                         rdfs:label "Institution de Sécurité Publique"@fr .
+
+
+###  http://ontologie.safi.ma/onto#LieuGéographique
+safi:LieuGéographique rdf:type owl:Class ;
+                      rdfs:subClassOf safi:EntitéSafi ;
+                      rdfs:comment "Tout lieu physique localisable par coordonnées géographiques"@fr ;
+                      rdfs:label "Lieu Géographique"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Lycée
+safi:Lycée rdf:type owl:Class ;
+           rdfs:subClassOf safi:Enseignement ;
+           rdfs:label "Lycée"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Mausolée
+safi:Mausolée rdf:type owl:Class ;
+              rdfs:subClassOf safi:PatrimoineReligieux ;
+              rdfs:label "Mausolée / Marabout"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Minaret
+safi:Minaret rdf:type owl:Class ;
+             rdfs:subClassOf safi:PatrimoineReligieux ;
+             rdfs:label "Minaret"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Mosquée
+safi:Mosquée rdf:type owl:Class ;
+             rdfs:subClassOf safi:PatrimoineReligieux ;
+             rdfs:label "Mosquée"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Musée
+safi:Musée rdf:type owl:Class ;
+           rdfs:subClassOf safi:PatrimoineCulturel ;
+           rdfs:label "Musée"@fr .
+
+
+###  http://ontologie.safi.ma/onto#MédinaHistorique
+safi:MédinaHistorique rdf:type owl:Class ;
+                      rdfs:subClassOf safi:QuartierZone ;
+                      rdfs:label "Médina Historique"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Patrimoine
+safi:Patrimoine rdf:type owl:Class ;
+                rdfs:subClassOf safi:LieuGéographique ;
+                rdfs:comment "Lieu à valeur patrimoniale historique, culturelle ou architecturale"@fr ;
+                rdfs:label "Patrimoine"@fr .
+
+
+###  http://ontologie.safi.ma/onto#PatrimoineCulturel
+safi:PatrimoineCulturel rdf:type owl:Class ;
+                        rdfs:subClassOf safi:Patrimoine ;
+                        rdfs:label "Patrimoine Culturel"@fr .
+
+
+###  http://ontologie.safi.ma/onto#PatrimoineMilitaire
+safi:PatrimoineMilitaire rdf:type owl:Class ;
+                         rdfs:subClassOf safi:Patrimoine ;
+                         rdfs:label "Patrimoine Militaire"@fr .
+
+
+###  http://ontologie.safi.ma/onto#PatrimoineReligieux
+safi:PatrimoineReligieux rdf:type owl:Class ;
+                         rdfs:subClassOf safi:Patrimoine ;
+                         rdfs:label "Patrimoine Religieux"@fr .
+
+
+###  http://ontologie.safi.ma/onto#PatrimoineUrbain
+safi:PatrimoineUrbain rdf:type owl:Class ;
+                      rdfs:subClassOf safi:Patrimoine ;
+                      rdfs:label "Patrimoine Urbain"@fr .
+
+
+###  http://ontologie.safi.ma/onto#PatrimoineÉconomique
+safi:PatrimoineÉconomique rdf:type owl:Class ;
+                          rdfs:subClassOf safi:Patrimoine ;
+                          rdfs:label "Patrimoine Économique"@fr .
+
+
+###  http://ontologie.safi.ma/onto#PersonnePhysique
+safi:PersonnePhysique rdf:type owl:Class ;
+                      rdfs:subClassOf safi:Acteur ;
+                      rdfs:label "Personne Physique"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Pharmacie
+safi:Pharmacie rdf:type owl:Class ;
+               rdfs:subClassOf safi:Santé ;
+               rdfs:label "Pharmacie"@fr .
+
+
+###  http://ontologie.safi.ma/onto#PlageEsplanade
+safi:PlageEsplanade rdf:type owl:Class ;
+                    rdfs:subClassOf safi:CultureLoisirs ;
+                    rdfs:label "Plage / Esplanade"@fr .
+
+
+###  http://ontologie.safi.ma/onto#PlageNaturelle
+safi:PlageNaturelle rdf:type owl:Class ;
+                    rdfs:subClassOf safi:SiteNaturel ;
+                    rdfs:label "Plage Naturelle"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Port
+safi:Port rdf:type owl:Class ;
+          rdfs:subClassOf safi:PatrimoineÉconomique ;
+          rdfs:label "Port"@fr .
+
+
+###  http://ontologie.safi.ma/onto#PorteMédina
+safi:PorteMédina rdf:type owl:Class ;
+                 rdfs:subClassOf safi:PatrimoineUrbain ;
+                 rdfs:label "Porte de la Médina"@fr .
+
+
+###  http://ontologie.safi.ma/onto#QuartierZone
+safi:QuartierZone rdf:type owl:Class ;
+                  rdfs:subClassOf safi:LieuGéographique ;
+                  rdfs:label "Quartier / Zone Urbaine"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Remparts
+safi:Remparts rdf:type owl:Class ;
+              rdfs:subClassOf safi:PatrimoineMilitaire ;
+              rdfs:label "Remparts"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Restaurant
+safi:Restaurant rdf:type owl:Class ;
+                rdfs:subClassOf safi:Restauration ;
+                rdfs:label "Restaurant"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Restauration
+safi:Restauration rdf:type owl:Class ;
+                  rdfs:subClassOf safi:LieuGéographique ;
+                  rdfs:label "Restauration"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Riad
+safi:Riad rdf:type owl:Class ;
+          rdfs:subClassOf safi:Hébergement ;
+          rdfs:label "Riad / Maison d'hôtes"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Santé
+safi:Santé rdf:type owl:Class ;
+           rdfs:subClassOf safi:LieuGéographique ;
+           rdfs:label "Établissement de Santé"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Service
+safi:Service rdf:type owl:Class .
+
+
+###  http://ontologie.safi.ma/onto#ServiceInstitution
+safi:ServiceInstitution rdf:type owl:Class ;
+                        rdfs:subClassOf safi:LieuGéographique ;
+                        rdfs:label "Service et Institution"@fr .
+
+
+###  http://ontologie.safi.ma/onto#ServiceProximité
+safi:ServiceProximité rdf:type owl:Class ;
+                      rdfs:subClassOf safi:ServiceInstitution ;
+                      rdfs:label "Service de Proximité"@fr .
+
+
+###  http://ontologie.safi.ma/onto#SiteArtisanal
+safi:SiteArtisanal rdf:type owl:Class ;
+                   rdfs:subClassOf safi:PatrimoineCulturel ;
+                   rdfs:label "Site Artisanal"@fr .
+
+
+###  http://ontologie.safi.ma/onto#SiteNaturel
+safi:SiteNaturel rdf:type owl:Class ;
+                 rdfs:subClassOf safi:LieuGéographique ;
+                 rdfs:label "Site Naturel"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Snack
+safi:Snack rdf:type owl:Class ;
+           rdfs:subClassOf safi:Restauration ;
+           rdfs:label "Snack"@fr .
+
+
+###  http://ontologie.safi.ma/onto#SpotSurf
+safi:SpotSurf rdf:type owl:Class ;
+              rdfs:subClassOf safi:SiteNaturel ;
+              rdfs:label "Spot de Surf"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Transport
+safi:Transport rdf:type owl:Class ;
+               rdfs:subClassOf safi:LieuGéographique ;
+               rdfs:label "Infrastructure de Transport"@fr .
+
+
+###  http://ontologie.safi.ma/onto#ÉcolePrimaire
+safi:ÉcolePrimaire rdf:type owl:Class ;
+                   rdfs:subClassOf safi:Enseignement ;
+                   rdfs:label "École Primaire"@fr .
+
+
+###  http://ontologie.safi.ma/onto#ÉdificeCultuelChrétien
+safi:ÉdificeCultuelChrétien rdf:type owl:Class ;
+                            rdfs:subClassOf safi:PatrimoineReligieux ;
+                            rdfs:label "Édifice Cultuel Chrétien"@fr .
+
+
+###  http://ontologie.safi.ma/onto#ÉtablissementSupérieur
+safi:ÉtablissementSupérieur rdf:type owl:Class ;
+                            rdfs:subClassOf safi:Enseignement ;
+                            rdfs:label "Établissement d'Enseignement Supérieur"@fr .
+
+
+###  http://ontologie.safi.ma/onto#ÉtatModerne
+safi:ÉtatModerne rdf:type owl:Class ;
+                 rdfs:subClassOf safi:Acteur ;
+                 rdfs:label "État Moderne"@fr .
+
+
+###  http://ontologie.safi.ma/onto#ÉvénementHistorique
+safi:ÉvénementHistorique rdf:type owl:Class ;
+                         rdfs:subClassOf safi:EntitéSafi ;
+                         rdfs:comment "Événement datée ayant transformé un lieu (construction, restauration, conquête…)"@fr ;
+                         rdfs:label "Événement Historique"@fr .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://ontologie.safi.ma/onto#Ahmad_al_Araj
+safi:Ahmad_al_Araj rdf:type owl:NamedIndividual ,
+                            safi:PersonnePhysique ;
+                   rdfs:label "Ahmad al-Araj (Sultan Saadien)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Almohades
+safi:Almohades rdf:type owl:NamedIndividual ,
+                        safi:Dynastie ;
+               rdfs:label "Almohades"@fr .
+
+
+###  http://ontologie.safi.ma/onto#AteliersCollinePotiers
+safi:AteliersCollinePotiers rdf:type owl:NamedIndividual ,
+                                     safi:FormationArtisanale ;
+                            safi:estPartieIntégranteDe safi:CollinePotiers_Site ;
+                            safi:annéeConstruction "~1920" ;
+                            safi:horaires "09h00-18h00 (tous les jours)" ;
+                            safi:latitude 32.3014 ;
+                            safi:longitude -9.2387 ;
+                            safi:spécialités "Tournage, décoration, cuisson céramique" ;
+                            safi:typeGestion "Mixte (ouvert au public)" ;
+                            rdfs:label "Ateliers de Poterie — Colline des Potiers"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Attijariwafa
+safi:Attijariwafa rdf:type owl:NamedIndividual ,
+                           safi:Banque ;
+                  safi:adresse "Route de Marrakech (près Marjane), Safi" ;
+                  safi:horaires "Lun-Ven 09h15-15h30 (DAB 24h/24)" ;
+                  safi:latitude 32.2785 ;
+                  safi:longitude -9.2081 ;
+                  safi:téléphone "+212 524 62 80 69" ;
+                  rdfs:label "Attijariwafa Bank (Agence Safi Marjane)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#BabChaaba
+safi:BabChaaba rdf:type owl:NamedIndividual ,
+                        safi:PorteMédina ;
+               safi:estPartieIntégranteDe safi:RempartsMédina ;
+               safi:annéeConstruction "XIIe siècle / Renforcée ~1510 (Portugais)" ;
+               safi:classéUNESCO "true"^^xsd:boolean ;
+               safi:dernièreRestauration "2023-2024 (restauration urgence inondations)" ;
+               safi:latitude 32.3001 ;
+               safi:longitude -9.2345 ;
+               rdfs:label "Bab Chaâba"@fr .
+
+
+###  http://ontologie.safi.ma/onto#BabElKouass
+safi:BabElKouass rdf:type owl:NamedIndividual ,
+                          safi:PorteMédina ;
+                 safi:aConstruitPar safi:Almohades ;
+                 safi:estPartieIntégranteDe safi:RempartsMédina ;
+                 safi:annéeConstruction "XIIe siècle (Almohades) / Renforcé XVIe s." ;
+                 safi:dernièreRestauration "2019-2022" ;
+                 safi:latitude 32.2961 ;
+                 safi:longitude -9.2428 ;
+                 rdfs:label "Bab El Kouass (La Porte des Arches)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#BanquePopulaire
+safi:BanquePopulaire rdf:type owl:NamedIndividual ,
+                              safi:Banque ;
+                     safi:adresse "Rue Atlas, Quartier Biada, Safi" ;
+                     safi:horaires "Lun-Ven 08h15-15h45 (DAB 24h/24)" ;
+                     safi:latitude 32.2494 ;
+                     safi:longitude -8.9941 ;
+                     safi:téléphone "+212 524 66 80 66" ;
+                     rdfs:comment "⚠ Longitude -8.9941 suspecte — à vérifier"@fr ;
+                     rdfs:label "Banque Populaire (Biada)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Bibliothèque
+safi:Bibliothèque rdf:type owl:NamedIndividual ,
+                           safi:Bibliothèque ;
+                  safi:estPartieIntégranteDe safi:CitéDesArts ;
+                  safi:annéeConstruction "2014" ;
+                  safi:horaires "09h00-18h00" ;
+                  safi:latitude 32.2974 ;
+                  safi:longitude -9.2376 ;
+                  safi:spécialités "Lecture, recherche, numérique, archives locales" ;
+                  safi:typeGestion "Public" .
+
+
+###  http://ontologie.safi.ma/onto#CathédralePortugaise
+safi:CathédralePortugaise rdf:type owl:NamedIndividual ,
+                                   safi:ÉdificeCultuelChrétien ;
+                          safi:aConstruitPar safi:Portugais_ManuelIer ;
+                          safi:aSuccédéÀ safi:GrandeMosquée ;
+                          safi:estSituéDans safi:MédinaAncienne ;
+                          safi:annéeConstruction "1519" ;
+                          safi:classéUNESCO "true"^^xsd:boolean ;
+                          safi:dernièreRestauration "En cours (2023-2025)" ;
+                          safi:latitude 32.2989 ;
+                          safi:longitude -9.2394 ;
+                          rdfs:label "Cathédrale Portugaise"@fr .
+
+
+###  http://ontologie.safi.ma/onto#ChezHosni
+safi:ChezHosni rdf:type owl:NamedIndividual ,
+                        safi:Restaurant ;
+               safi:adresse "Rue Les Forgerons, Safi" ;
+               safi:cuisineProposée "Cuisine traditionnelle marocaine (Tajine poisson, poulet, Kefta, Salades)" ;
+               safi:horaires "11h00-23h00 (dim-jeu)" ;
+               safi:latitude 32.3005 ;
+               safi:livraison "false"^^xsd:boolean ;
+               safi:longitude -9.2392 ;
+               safi:noteMoyenne "Top 1 restaurant Safi" ;
+               safi:prixMoyenRepas "50-150 DH" ;
+               safi:téléphone "+212 660 052 323" ;
+               rdfs:label "Chez Hosni"@fr .
+
+
+###  http://ontologie.safi.ma/onto#CitéDesArts
+safi:CitéDesArts rdf:type owl:NamedIndividual ,
+                          safi:CentreArts ;
+                 safi:gèreParInstitution safi:ÉtatMarocain ;
+                 safi:annéeConstruction "2011" ;
+                 safi:dernièreRestauration "2021-2022" ;
+                 safi:horaires "08h00-20h00 (lun-ven)" ;
+                 safi:latitude 32.2967 ;
+                 safi:longitude -9.2370 ;
+                 safi:spécialités "Théâtre, salles d'exposition, salles de conférence, espaces verts" ;
+                 safi:typeGestion "Public" ;
+                 safi:téléphone "+212 524 46 38 95" ;
+                 rdfs:label "Cité des Arts et de la Culture"@fr .
+
+
+###  http://ontologie.safi.ma/onto#CollectifPotiers
+safi:CollectifPotiers rdf:type owl:NamedIndividual ,
+                               safi:CollectifArtisanal ;
+                      rdfs:label "Artisans Safiotes (collectif potiers)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#CollinePotiers_Site
+safi:CollinePotiers_Site rdf:type owl:NamedIndividual ,
+                                  safi:SiteArtisanal ;
+                         safi:aConstruitPar safi:CollectifPotiers ;
+                         safi:annéeConstruction "~1875 (essor) / Ateliers ~1920" ;
+                         safi:classéUNESCO "true"^^xsd:boolean ;
+                         safi:dernièreRestauration "2024-2026 (en cours)" ;
+                         safi:latitude 32.3015 ;
+                         safi:longitude -9.2335 ;
+                         rdfs:label "Colline des Potiers"@fr .
+
+
+###  http://ontologie.safi.ma/onto#CollègeMoulayYoussef
+safi:CollègeMoulayYoussef rdf:type owl:NamedIndividual ,
+                                   safi:Collège ;
+                          safi:gèreParInstitution safi:ÉtatMarocain ;
+                          safi:adresse "Av. Moulay Youssef, Safi 46000" ;
+                          safi:latitude 32.2973 ;
+                          safi:longitude -9.2395 ;
+                          safi:typeGestion "Public" ;
+                          safi:téléphone "+212 524 462 297" ;
+                          rdfs:label "Collège Moulay Youssef"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Conservatoire
+safi:Conservatoire rdf:type owl:NamedIndividual ,
+                            safi:ConservatoireMusique ;
+                   safi:gèreParInstitution safi:ÉtatMarocain ;
+                   safi:annéeConstruction "1970-1980" ;
+                   safi:dernièreRestauration "2018-2019" ;
+                   safi:latitude 32.2969 ;
+                   safi:longitude -9.2363 ;
+                   safi:spécialités "Solfège, Violon, Piano, Oud, Guitare, Chant, Musique andalouse, Malhoun, Aïta" ;
+                   safi:typeGestion "Public" ;
+                   rdfs:label "Conservatoire de Musique de Safi"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Corniche
+safi:Corniche rdf:type owl:NamedIndividual ,
+                       safi:EspacePublic ;
+              safi:gèreParInstitution safi:ÉtatMarocain ;
+              safi:annéeConstruction "2018-2020" ;
+              safi:latitude 32.3018 ;
+              safi:longitude -9.2435 ;
+              safi:typeGestion "Public" ;
+              rdfs:label "Corniche de Safi"@fr .
+
+
+###  http://ontologie.safi.ma/onto#CourAppel
+safi:CourAppel rdf:type owl:NamedIndividual ,
+                        safi:InstitutionJudiciaire ;
+               safi:annéeConstruction "1920-1930 (Protectorat)" ;
+               safi:dernièreRestauration "2020" ;
+               safi:horaires "Lun-Ven 08h30-16h30" ;
+               safi:latitude 32.2939 ;
+               safi:longitude -9.2426 ;
+               safi:siteWeb "https://www.justice.gov.ma"^^xsd:anyURI ;
+               safi:spécialités "Appels civils, pénaux, familiaux, commerciaux" ;
+               safi:téléphone "+212 524 62 36 56" ;
+               rdfs:label "Cour d'Appel (Palais de Justice)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#DarSoltane_Kechla
+safi:DarSoltane_Kechla rdf:type owl:NamedIndividual ,
+                                safi:Forteresse ;
+                       safi:aConstruitPar safi:Almohades ;
+                       safi:estLiéHistoriquementÀ safi:MuséeCéramique ;
+                       safi:estSituéDans safi:MédinaAncienne ;
+                       safi:annéeClassementUNESCO "2025"^^xsd:gYear ;
+                       safi:annéeConstruction "XIIe-XIIIe siècle (Almohades) / Réaménagée 1508-1541 (Portugais)" ;
+                       safi:classéUNESCO "true"^^xsd:boolean ;
+                       safi:dernièreRestauration "2023-2026 (programme de réhabilitation)" ;
+                       safi:latitude 32.2990 ;
+                       safi:longitude -9.2369 ;
+                       rdfs:label "Dar Soltane (Kechla / Borj Dar)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#ENSASafi
+safi:ENSASafi rdf:type owl:NamedIndividual ,
+                       safi:ÉtablissementSupérieur ;
+              safi:gèreParInstitution safi:UCA ;
+              safi:annéeConstruction "2003" ;
+              safi:latitude 32.3267 ;
+              safi:longitude -9.2636 ;
+              safi:typeGestion "Public" ;
+              safi:téléphone "+212 524 66 91 55" ;
+              rdfs:label "ENSA Safi (École Nationale des Sciences Appliquées)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#FPS
+safi:FPS rdf:type owl:NamedIndividual ,
+                  safi:ÉtablissementSupérieur ;
+         safi:gèreParInstitution safi:UCA ;
+         safi:annéeConstruction "2003" ;
+         safi:latitude 32.3325 ;
+         safi:longitude -9.2132 ;
+         safi:siteWeb "http://fps.uca.ma"^^xsd:anyURI ;
+         safi:typeGestion "Public" ;
+         safi:téléphone "+212 524 66 93 54" ;
+         rdfs:label "Faculté Polydisciplinaire de Safi (FPS)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Famille_Benkaddour
+safi:Famille_Benkaddour rdf:type owl:NamedIndividual ,
+                                 safi:PersonnePhysique ;
+                        rdfs:label "Famille Benkaddour"@fr .
+
+
+###  http://ontologie.safi.ma/onto#GareONCF
+safi:GareONCF rdf:type owl:NamedIndividual ,
+                       safi:GareFerroviaire ;
+              safi:adresse "Av. Sidi Ouassel, Safi 46000" ;
+              safi:latitude 32.2858 ;
+              safi:longitude -9.2440 ;
+              safi:siteWeb "https://www.oncf-voyages.ma"^^xsd:anyURI ;
+              safi:spécialités "Safi ↔ Benguerir / Connexions Casablanca, Rabat, Marrakech" ;
+              safi:téléphone "+212 537 275 800" ;
+              rdfs:label "Gare ONCF de Safi"@fr .
+
+
+###  http://ontologie.safi.ma/onto#GareRoutière
+safi:GareRoutière rdf:type owl:NamedIndividual ,
+                           safi:GareRoutière ;
+                  safi:latitude 32.2894 ;
+                  safi:longitude -9.2355 ;
+                  safi:spécialités "Bus nationaux (Marrakech, Casablanca, Agadir, Essaouira…)" ;
+                  safi:téléphone "+212 524 62 15 99" .
+
+
+###  http://ontologie.safi.ma/onto#GlassHouse
+safi:GlassHouse rdf:type owl:NamedIndividual ,
+                         safi:CaféRestaurant ;
+                safi:adresse "Av. Youba, Ville Nouvelle, Safi" ;
+                safi:cuisineProposée "Marocaine + Méditerranéenne + Café" ;
+                safi:horaires "07h00-23h00 (lun-dim)" ;
+                safi:latitude 32.2950 ;
+                safi:livraison "true"^^xsd:boolean ;
+                safi:longitude -9.2313 ;
+                safi:noteMoyenne "4.2-4.8/5" ;
+                safi:prixMoyenRepas "1-50 DH" ;
+                safi:téléphone "+212 5246 10088" ;
+                rdfs:label "Glass House"@fr .
+
+
+###  http://ontologie.safi.ma/onto#GrandeMosquée
+safi:GrandeMosquée rdf:type owl:NamedIndividual ,
+                            safi:Mosquée ;
+                   safi:aConstruitPar safi:Moulay_Slimane ;
+                   safi:estLiéHistoriquementÀ safi:MinaretAlmohade ;
+                   safi:estSituéDans safi:MédinaAncienne ;
+                   safi:annéeConstruction "XIIe siècle (Almohades) / Reconstruction 1807" ;
+                   safi:classéUNESCO "true"^^xsd:boolean ;
+                   safi:dernièreRestauration "2023-2025 (entretien façades et toitures)" ;
+                   safi:latitude 32.2988 ;
+                   safi:longitude -9.2392 ;
+                   rdfs:label "Grande Mosquée (Masjid Al-Aadam)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#GrandePharmacieFrançaise
+safi:GrandePharmacieFrançaise rdf:type owl:NamedIndividual ,
+                                       safi:Pharmacie ;
+                              safi:gèreParInstitution safi:Famille_Benkaddour ;
+                              safi:annéeConstruction "1920-1930 (Protectorat)" ;
+                              safi:horaires "Lun-Ven 08h30-12h30/15h00-20h00 / Sam 08h30-12h30" ;
+                              safi:latitude 32.2982 ;
+                              safi:longitude -9.2385 ;
+                              safi:téléphone "+212 524 622 369" ;
+                              rdfs:label "Grande Pharmacie Française"@fr .
+
+
+###  http://ontologie.safi.ma/onto#GroupeAkdital
+safi:GroupeAkdital rdf:type owl:NamedIndividual ,
+                            safi:EntreprisePrivée ;
+                   rdfs:label "Groupe Akdital"@fr .
+
+
+###  http://ontologie.safi.ma/onto#HôpitalAicha
+safi:HôpitalAicha rdf:type owl:NamedIndividual ,
+                           safi:HôpitalPublic ;
+                  safi:gèreParInstitution safi:ÉtatMarocain ;
+                  safi:annéeConstruction "Inauguré 2023" ;
+                  safi:horaires "Urgences 24h/24 / Services internes 08h00-16h00" ;
+                  safi:latitude 32.3134 ;
+                  safi:longitude -9.2311 ;
+                  safi:spécialités "Urgences, Médecine générale, Pédiatrie, Gynécologie, Chirurgie, Radiologie, Laboratoire" ;
+                  safi:typeGestion "Public" ;
+                  rdfs:label "Hôpital Aïcha"@fr .
+
+
+###  http://ontologie.safi.ma/onto#HôpitalAkdital
+safi:HôpitalAkdital rdf:type owl:NamedIndividual ,
+                             safi:HôpitalPrivé ;
+                    safi:gèreParInstitution safi:GroupeAkdital ;
+                    safi:annéeConstruction "2022" ;
+                    safi:horaires "24h/24" ;
+                    safi:latitude 32.2985 ;
+                    safi:longitude -9.2310 ;
+                    safi:spécialités "Hôpital multidisciplinaire privé" ;
+                    safi:typeGestion "Privé" ;
+                    safi:téléphone "+212 524 620 808" ;
+                    rdfs:label "Hôpital Privé Akdital"@fr .
+
+
+###  http://ontologie.safi.ma/onto#HôpitalMohammedV
+safi:HôpitalMohammedV rdf:type owl:NamedIndividual ,
+                               safi:HôpitalPublic ;
+                      safi:gèreParInstitution safi:ÉtatMarocain ;
+                      safi:annéeConstruction "1950" ;
+                      safi:dernièreRestauration "2018-2021" ;
+                      safi:horaires "24h/24" ;
+                      safi:latitude 32.2908 ;
+                      safi:longitude -9.2315 ;
+                      safi:spécialités "Médecine générale, Chirurgie, Maternité" ;
+                      safi:typeGestion "Public" ;
+                      safi:téléphone "+212 524 622 365" ;
+                      rdfs:label "Hôpital Provincial Mohammed V"@fr .
+
+
+###  http://ontologie.safi.ma/onto#HôtelAssif
+safi:HôtelAssif rdf:type owl:NamedIndividual ,
+                         safi:Hôtel ;
+                safi:annéeConstruction "1987" ;
+                safi:horaires "24h/24" ;
+                safi:latitude 32.2965 ;
+                safi:longitude -9.2318 ;
+                safi:prixMoyenNuit "350-500 DH" ;
+                safi:typeGestion "Privé" ;
+                safi:téléphone "+212 524 622 311" ;
+                safi:étoiles 3 ;
+                rdfs:label "Hôtel Assif"@fr .
+
+
+###  http://ontologie.safi.ma/onto#HôtelAtlantide
+safi:HôtelAtlantide rdf:type owl:NamedIndividual ,
+                             safi:Hôtel ;
+                    safi:annéeConstruction "XXe siècle (Art déco)" ;
+                    safi:horaires "24h/24" ;
+                    safi:latitude 32.2944 ;
+                    safi:longitude -9.2394 ;
+                    safi:prixMoyenNuit "350-600 DH (estimation historique)" ;
+                    safi:typeGestion "Racheté 2025 par SHB/UM6P — statut incertain" ;
+                    safi:téléphone "+212 524 668 490" ;
+                    safi:étoiles 3 ;
+                    rdfs:label "Hôtel de l'Atlantide"@fr .
+
+
+###  http://ontologie.safi.ma/onto#HôtelFarah
+safi:HôtelFarah rdf:type owl:NamedIndividual ,
+                         safi:Hôtel ;
+                safi:annéeConstruction "1980" ;
+                safi:horaires "24h/24" ;
+                safi:latitude 32.3061 ;
+                safi:longitude -9.2435 ;
+                safi:prixMoyenNuit "850-1400 DH" ;
+                safi:typeGestion "Privé (Farah Maghreb / CMKD)" ;
+                safi:téléphone "+212 524 464 299" ;
+                safi:étoiles 4 ;
+                rdfs:label "Golden Tulip Farah Safi"@fr .
+
+
+###  http://ontologie.safi.ma/onto#HôtelPanorama
+safi:HôtelPanorama rdf:type owl:NamedIndividual ,
+                            safi:Hôtel ;
+                   safi:annéeConstruction "2003" ;
+                   safi:horaires "24h/24" ;
+                   safi:latitude 32.2982 ;
+                   safi:longitude -9.2425 ;
+                   safi:prixMoyenNuit "400-650 DH" ;
+                   safi:typeGestion "Privé" ;
+                   safi:téléphone "+212 524 628 585" ;
+                   safi:étoiles 3 ;
+                   rdfs:label "Hôtel Panorama"@fr .
+
+
+###  http://ontologie.safi.ma/onto#KsarElBahr
+safi:KsarElBahr rdf:type owl:NamedIndividual ,
+                         safi:Forteresse ;
+                safi:aConstruitPar safi:Portugais_ManuelIer ;
+                safi:estSituéDans safi:MédinaAncienne ;
+                safi:annéeClassementUNESCO "2025"^^xsd:gYear ;
+                safi:annéeConstruction "1516 (Feitoria) → ~1523" ;
+                safi:classéUNESCO "true"^^xsd:boolean ;
+                safi:dernièreRestauration "2023-2026 (projet de sauvetage d'urgence)" ;
+                safi:latitude 32.2985 ;
+                safi:longitude -9.2435 ;
+                safi:statutNational "Monument Historique Classé (Patrimoine National)" ;
+                rdfs:label "Ksar El Bahr (Château de la Mer)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#LOcéan
+safi:LOcéan rdf:type owl:NamedIndividual ,
+                     safi:Restaurant ;
+            safi:adresse "44 Route De Sidi Bouzid, R301" ;
+            safi:horaires "06h00-01h00 (tous les jours)" ;
+            safi:latitude 33.2436 ;
+            safi:longitude -8.5229 ;
+            safi:prixMoyenRepas "1-50 DH" ;
+            safi:téléphone "+212 523 355 582" ;
+            rdfs:comment "⚠ Coordonnées suspectes — hors de Safi, à vérifier"@fr ;
+            rdfs:label "L'Océan"@fr .
+
+
+###  http://ontologie.safi.ma/onto#LycéeKhawarizmi
+safi:LycéeKhawarizmi rdf:type owl:NamedIndividual ,
+                              safi:Lycée ;
+                     safi:gèreParInstitution safi:ÉtatMarocain ;
+                     safi:annéeConstruction "1990-2000" ;
+                     safi:latitude 32.3029 ;
+                     safi:longitude -9.2187 ;
+                     safi:typeGestion "Public" ;
+                     rdfs:label "Lycée Al Khawarizmi"@fr .
+
+
+###  http://ontologie.safi.ma/onto#MaraboutSidiElJazouli
+safi:MaraboutSidiElJazouli rdf:type owl:NamedIndividual ,
+                                    safi:Mausolée ;
+                           safi:aConstruitPar safi:Ahmad_al_Araj ;
+                           safi:estSituéDans safi:MédinaAncienne ;
+                           safi:annéeConstruction "1523-1524" ;
+                           safi:classéUNESCO "true"^^xsd:boolean ;
+                           safi:dernièreRestauration "2023-2025 (Ministère des Habous)" ;
+                           safi:latitude 32.2994 ;
+                           safi:longitude -9.2372 ;
+                           rdfs:label "Marabout Sidi El Jazouli"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Marjane
+safi:Marjane rdf:type owl:NamedIndividual ,
+                      safi:GrandeSurface ;
+             safi:horaires "09h00-22h00 (tous les jours)" ;
+             safi:latitude 32.2981 ;
+             safi:livraison "true"^^xsd:boolean ;
+             safi:longitude -9.2156 ;
+             safi:siteWeb "https://www.marjane.ma"^^xsd:anyURI ;
+             safi:spécialités "Supermarché, centre de shopping, espace commercial" ;
+             safi:téléphone "+212 802 022 050" ;
+             rdfs:label "Marjane Safi"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Mehdi_Serghini
+safi:Mehdi_Serghini rdf:type owl:NamedIndividual ,
+                             safi:PersonnePhysique ;
+                    rdfs:label "Mehdi Serghini"@fr .
+
+
+###  http://ontologie.safi.ma/onto#MinaretAlmohade
+safi:MinaretAlmohade rdf:type owl:NamedIndividual ,
+                              safi:Minaret ;
+                     safi:aConstruitPar safi:Almohades ;
+                     safi:estLiéHistoriquementÀ safi:GrandeMosquée ;
+                     safi:estSituéDans safi:MédinaAncienne ;
+                     safi:annéeConstruction "1184-1199 (Almohades) / Achevé XIVe s. (Mérinides)" ;
+                     safi:dernièreRestauration "2013-2015" ;
+                     safi:latitude 32.2982 ;
+                     safi:longitude -9.2447 ;
+                     rdfs:label "Minaret Almohade"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Moulay_Slimane
+safi:Moulay_Slimane rdf:type owl:NamedIndividual ,
+                             safi:PersonnePhysique ;
+                    rdfs:label "Sultan Moulay Slimane"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Municipalité
+safi:Municipalité rdf:type owl:NamedIndividual ,
+                           safi:InstitutionAdministrative ;
+                  safi:annéeConstruction "1917" ;
+                  safi:horaires "Lun-Ven 08h30-16h30" ;
+                  safi:latitude 32.2956 ;
+                  safi:longitude -9.2343 ;
+                  safi:spécialités "État civil, urbanisme, permis, services communaux" ;
+                  rdfs:label "Municipalité de Safi (Baladiya)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#MuséeCéramique
+safi:MuséeCéramique rdf:type owl:NamedIndividual ,
+                             safi:Musée ;
+                    safi:estLiéHistoriquementÀ safi:DarSoltane_Kechla ;
+                    safi:estPartieIntégranteDe safi:CitéDesArts ;
+                    safi:gèreParInstitution safi:ÉtatMarocain ;
+                    safi:annéeConstruction "Fondé 1990 à Kechla / Transféré ~2014 à Cité des Arts" ;
+                    safi:classéUNESCO "true"^^xsd:boolean ;
+                    safi:dernièreRestauration "2023-2025" ;
+                    safi:latitude 32.2967 ;
+                    safi:longitude -9.2370 ;
+                    rdfs:label "Musée National de la Céramique"@fr .
+
+
+###  http://ontologie.safi.ma/onto#MédinaAncienne
+safi:MédinaAncienne rdf:type owl:NamedIndividual ,
+                             safi:MédinaHistorique ;
+                    safi:classéUNESCO "true"^^xsd:boolean ;
+                    safi:latitude 32.3004 ;
+                    safi:longitude -9.2431 ;
+                    safi:spécialités "Souk, artisans (poterie…), mosquées anciennes, maisons traditionnelles" ;
+                    rdfs:label "Médina Ancienne (La9dima)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#OCP
+safi:OCP rdf:type owl:NamedIndividual ,
+                  safi:EntreprisePublique ;
+         rdfs:label "OCP Group (Office Chérifien des Phosphates)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#PharmacieABC
+safi:PharmacieABC rdf:type owl:NamedIndividual ,
+                           safi:Pharmacie ;
+                  safi:annéeConstruction "Années 1990-2000" ;
+                  safi:horaires "Lun-Ven 08h30-13h00/15h00-20h30 / Sam 09h00-13h30" ;
+                  safi:latitude 32.2988 ;
+                  safi:longitude -9.2312 ;
+                  safi:téléphone "+212 524 463 322" ;
+                  rdfs:label "Pharmacie ABC"@fr .
+
+
+###  http://ontologie.safi.ma/onto#PlaceTajineGéant
+safi:PlaceTajineGéant rdf:type owl:NamedIndividual ,
+                               safi:EspacePublic ;
+                      safi:aConstruitPar safi:CollectifPotiers ;
+                      safi:estSituéDans safi:MédinaAncienne ;
+                      safi:annéeConstruction "1999" ;
+                      safi:dernièreRestauration "2020" ;
+                      safi:latitude 32.2982 ;
+                      safi:longitude -9.2396 ;
+                      rdfs:label "Place du Tajine Géant (Place Mohammed V)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Plage
+safi:Plage rdf:type owl:NamedIndividual ,
+                    safi:PlageNaturelle ;
+           safi:latitude 32.3180 ;
+           safi:longitude -9.2515 ;
+           rdfs:label "Plage de Safi (Sidi Bouzid)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#PortSardinier
+safi:PortSardinier rdf:type owl:NamedIndividual ,
+                            safi:Port ;
+                   safi:aConstruitPar safi:Protectorat_Français ;
+                   safi:annéeConstruction "1920" ;
+                   safi:dernièreRestauration "2022-2024" ;
+                   safi:latitude 32.3000 ;
+                   safi:longitude -9.2500 ;
+                   rdfs:label "Port de Pêche Historique (Port Sardinier)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Portugais_ManuelIer
+safi:Portugais_ManuelIer rdf:type owl:NamedIndividual ,
+                                  safi:Acteur ;
+                         rdfs:label "Portugais sous le règne de Manuel Ier"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Protectorat_Français
+safi:Protectorat_Français rdf:type owl:NamedIndividual ,
+                                   safi:Acteur ;
+                          rdfs:label "Protectorat Français"@fr .
+
+
+###  http://ontologie.safi.ma/onto#PréfecturePolice
+safi:PréfecturePolice rdf:type owl:NamedIndividual ,
+                               safi:InstitutionSécurité ;
+                      safi:annéeConstruction "1920-1930 (Protectorat)" ;
+                      safi:dernièreRestauration "2022" ;
+                      safi:horaires "Lun-Jeu 08h30-16h30 / Ven 08h30-16h30" ;
+                      safi:latitude 32.2994 ;
+                      safi:longitude -9.2372 ;
+                      safi:spécialités "CNIE, Passeport biométrique, Certificat de résidence" ;
+                      safi:téléphone "+212 524 62 25 77" ;
+                      rdfs:label "Préfecture de Police de Safi"@fr .
+
+
+###  http://ontologie.safi.ma/onto#RasLafaa
+safi:RasLafaa rdf:type owl:NamedIndividual ,
+                       safi:SpotSurf ;
+              safi:latitude 32.3234 ;
+              safi:longitude -9.2619 ;
+              safi:spécialités "Surf international, compétition mondiale, spot de classe mondiale, vagues longues" ;
+              rdfs:label "Ras Lafâa"@fr .
+
+
+###  http://ontologie.safi.ma/onto#RempartsMédina
+safi:RempartsMédina rdf:type owl:NamedIndividual ,
+                             safi:Remparts ;
+                    safi:aConstruitPar safi:Almohades ;
+                    safi:annéeConstruction "Fin XIIe s. (Almohades) / Reconstruction 1510-1540 (Portugais)" ;
+                    safi:dernièreRestauration "2025" ;
+                    safi:latitude 32.2989 ;
+                    safi:longitude -9.2425 ;
+                    rdfs:label "Remparts de la Médina"@fr .
+
+
+###  http://ontologie.safi.ma/onto#RiadPêcheur
+safi:RiadPêcheur rdf:type owl:NamedIndividual ,
+                          safi:Riad ;
+                 safi:aConstruitPar safi:Mehdi_Serghini ;
+                 safi:adresse "1 rue de la Crête, Safi 46000" ;
+                 safi:horaires "Hôtel 24h/24 / Restaurant 12h-23h" ;
+                 safi:latitude 32.3041 ;
+                 safi:longitude -9.2415 ;
+                 safi:prixMoyenNuit "600-850 DH" ;
+                 safi:siteWeb "http://ryaddupecheur.com/"^^xsd:anyURI ;
+                 safi:typeGestion "Privé" ;
+                 safi:téléphone "+212 671 815 570" ;
+                 rdfs:label "Riad du Pêcheur"@fr .
+
+
+###  http://ontologie.safi.ma/onto#RooftopRestaurant
+safi:RooftopRestaurant rdf:type owl:NamedIndividual ,
+                                safi:Restaurant ;
+                       safi:adresse "11 Av. Allal Ben Abdellah, Corniche, Safi 46000" ;
+                       safi:cuisineProposée "Marocaine + Internationale + Méditerranéenne" ;
+                       safi:horaires "10h00-16h30 / 18h00-23h00 (lun-dim)" ;
+                       safi:latitude 32.2958 ;
+                       safi:livraison "true"^^xsd:boolean ;
+                       safi:longitude -9.2440 ;
+                       safi:noteMoyenne "4.2-4.9/5" ;
+                       safi:prixMoyenRepas "50-300 DH" ;
+                       safi:téléphone "+212 606 905 739" ;
+                       rdfs:label "Rooftop Restaurant"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Saadiens
+safi:Saadiens rdf:type owl:NamedIndividual ,
+                       safi:Dynastie ;
+              rdfs:label "Saadiens"@fr .
+
+
+###  http://ontologie.safi.ma/onto#SidiBoudheb
+safi:SidiBoudheb rdf:type owl:NamedIndividual ,
+                          safi:Mausolée ;
+                 safi:estSituéDans safi:MédinaAncienne ;
+                 safi:latitude 32.2993 ;
+                 safi:longitude -9.2431 ;
+                 safi:spécialités "Marabout, lieu de mémoire locale" ;
+                 rdfs:label "Sidi Boudheb"@fr .
+
+
+###  http://ontologie.safi.ma/onto#SidiBouzid
+safi:SidiBouzid rdf:type owl:NamedIndividual ,
+                         safi:PlageEsplanade ;
+                safi:annéeConstruction "Début 2000s" ;
+                safi:dernièreRestauration "2019-2021" ;
+                safi:latitude 32.3182 ;
+                safi:longitude -9.2479 ;
+                safi:typeGestion "Public" ;
+                rdfs:label "Sidi Bouzid (Esplanade / Plage)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#SiègeOCP
+safi:SiègeOCP rdf:type owl:NamedIndividual ,
+                       safi:EntreprisePublique ;
+              safi:gèreParInstitution safi:OCP ;
+              safi:annéeConstruction "1960-1975" ;
+              safi:horaires "08h00-17h00" ;
+              safi:latitude 32.2246 ;
+              safi:longitude -9.2480 ;
+              safi:siteWeb "https://www.ocpgroup.ma"^^xsd:anyURI ;
+              safi:spécialités "Phosphates, acide phosphorique, engrais" ;
+              rdfs:label "Siège Régional OCP"@fr .
+
+
+###  http://ontologie.safi.ma/onto#SnackLaMarine
+safi:SnackLaMarine rdf:type owl:NamedIndividual ,
+                            safi:Snack ;
+                   safi:adresse "Rue Chakib Arsalan, Safi" ;
+                   safi:horaires "10h00-23h00 (tous les jours)" ;
+                   safi:latitude 32.3055 ;
+                   safi:longitude -9.2404 ;
+                   safi:prixMoyenRepas "50-100 DH" ;
+                   safi:téléphone "+212 524 620 845" ;
+                   rdfs:label "Snack La Marine"@fr .
+
+
+###  http://ontologie.safi.ma/onto#StadeElMassira
+safi:StadeElMassira rdf:type owl:NamedIndividual ,
+                             safi:EquipementSportif ;
+                    safi:adresse "Av. Moulay Youssef, Safi" ;
+                    safi:annéeConstruction "1936 (inauguration ~1940)" ;
+                    safi:dernièreRestauration "2020" ;
+                    safi:latitude 32.3004 ;
+                    safi:longitude -9.2294 ;
+                    safi:spécialités "Football — Club résident: Olympic Club de Safi (OCS)" ;
+                    safi:typeGestion "Public" ;
+                    rdfs:label "Stade El Massira"@fr .
+
+
+###  http://ontologie.safi.ma/onto#Tasshilat
+safi:Tasshilat rdf:type owl:NamedIndividual ,
+                        safi:ServiceProximité ;
+               safi:adresse "N°19 Av. de la Liberté, Quartier Plateau, Safi" ;
+               safi:horaires "09h00-13h00 / 15h00-19h30" ;
+               safi:latitude 32.2965 ;
+               safi:longitude -9.2312 ;
+               safi:téléphone "+212 679 724 653" ;
+               rdfs:label "Tasshilat Plateau"@fr .
+
+
+###  http://ontologie.safi.ma/onto#UCA
+safi:UCA rdf:type owl:NamedIndividual ,
+                  safi:ÉtatModerne ;
+         rdfs:label "Université Cadi Ayyad (UCA)"@fr .
+
+
+###  http://ontologie.safi.ma/onto#ÉcoleYoussefIbnTachfine
+safi:ÉcoleYoussefIbnTachfine rdf:type owl:NamedIndividual ,
+                                      safi:ÉcolePrimaire ;
+                             safi:adresse "Quartier El Kors, Safi" ;
+                             safi:latitude 32.3006 ;
+                             safi:longitude -9.2272 ;
+                             safi:typeGestion "Public/Semi-public" ;
+                             safi:téléphone "+212 661 043 432" ;
+                             rdfs:label "École Youssef Ibn Tachfine"@fr .
+
+
+###  http://ontologie.safi.ma/onto#ÉtatMarocain
+safi:ÉtatMarocain rdf:type owl:NamedIndividual ,
+                           safi:ÉtatModerne ;
+                  rdfs:label "État Marocain"@fr .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+safi:Bibliothèque rdfs:label "Bibliothèque / Médiathèque"@fr ,
+                             "Bibliothèque Régionale / Médiathèque"@fr .
+
+
+safi:GareRoutière rdfs:label "Gare Routière"@fr ,
+                             "Gare Routière des Voyageurs"@fr .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

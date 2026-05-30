@@ -5,10 +5,9 @@ import { useNavigate } from 'react-router-dom';
 const Form = () => {
   const [formData, setFormData] = useState({
     name: '',
-    type: 'Fort',
+    type: 'Forteresse',
     year: '',
     description: '',
-    imageUrl: '',
     lat: '',
     lng: ''
   });
@@ -30,7 +29,7 @@ const Form = () => {
     
     if (result) {
       setStatus('success');
-      setTimeout(() => navigate('/'), 2000);
+      setTimeout(() => navigate('/map'), 2000);
     } else {
       setStatus('error');
     }
@@ -38,64 +37,64 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      {status === 'success' && <div className="bg-green-100 text-green-700 p-3 rounded">Monument ajouté avec succès ! Redirection...</div>}
-      {status === 'error' && <div className="bg-red-100 text-red-700 p-3 rounded">Erreur lors de l'ajout du monument. Vérifiez que la base est accessible.</div>}
+      {status === 'success' && <div className="bg-green-100 text-green-700 p-3 rounded">Lieu ajouté avec succès ! Redirection...</div>}
+      {status === 'error' && <div className="bg-red-100 text-red-700 p-3 rounded">Erreur lors de l'ajout. Vérifiez que la base Fuseki est accessible.</div>}
       
       <div>
-        <label className="block text-sm font-bold mb-1 text-gray-700">Nom du lieu (placeName)</label>
+        <label className="block text-sm font-bold mb-1 text-gray-700">Nom du lieu (rdfs:label)</label>
         <input name="name" value={formData.name} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Ex: Riad Safi" />
       </div>
 
       <div>
-        <label className="block text-sm font-bold mb-1 text-gray-700">Catégorie (Basée sur ton arborescence Protégé)</label>
+        <label className="block text-sm font-bold mb-1 text-gray-700">Catégorie (Classes SafiOnto V2)</label>
         <select name="type" value={formData.type} onChange={handleChange} className="w-full border rounded p-2 bg-white">
-          <optgroup label="Historical_Place">
-            <option value="Fort">Fort</option>
-            <option value="Museum">Musée (Museum)</option>
-            <option value="Gate">Porte Historique (Gate)</option>
-            <option value="Portuguese_Monument">Monument Portugais</option>
+          <optgroup label="Patrimoine">
+            <option value="Forteresse">Forteresse</option>
+            <option value="Mosquée">Mosquée</option>
+            <option value="Musée">Musée</option>
+            <option value="PorteMédina">Porte de la Médina</option>
+            <option value="Remparts">Remparts</option>
+            <option value="SiteArtisanal">Site Artisanal</option>
           </optgroup>
-          <optgroup label="Cultural_Place">
-            <option value="Pottery_Workshop">Atelier de Poterie</option>
-          </optgroup>
-          <optgroup label="Commercial_Place">
-            <option value="Hotel">Hôtel</option>
-            <option value="Market">Marché</option>
-          </optgroup>
-          <optgroup label="Food_Place">
+          <optgroup label="Hébergement & Restauration">
+            <option value="Hôtel">Hôtel</option>
+            <option value="Riad">Riad</option>
             <option value="Restaurant">Restaurant</option>
-            <option value="Traditional_Food">Cuisine Traditionnelle</option>
+            <option value="CaféRestaurant">Café / Restaurant</option>
+            <option value="Snack">Snack</option>
           </optgroup>
-          <optgroup label="Health_Place">
-            <option value="Hammam">Hammam</option>
-            <option value="Spa">Spa</option>
+          <optgroup label="Institutions & Services">
+            <option value="HôpitalPublic">Hôpital Public</option>
+            <option value="Pharmacie">Pharmacie</option>
+            <option value="Banque">Banque</option>
+            <option value="Lycée">Lycée</option>
+          </optgroup>
+          <optgroup label="Nature & Loisirs">
+            <option value="PlageNaturelle">Plage Naturelle</option>
+            <option value="SpotSurf">Spot de Surf</option>
+            <option value="EspacePublic">Espace Public</option>
           </optgroup>
         </select>
       </div>
 
       <div className="flex gap-4">
         <div className="flex-1">
-          <label className="block text-sm font-bold mb-1 text-gray-700">Latitude</label>
+          <label className="block text-sm font-bold mb-1 text-gray-700">Latitude (safi:latitude)</label>
           <input name="lat" type="number" step="any" value={formData.lat} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Ex: 32.298" />
         </div>
         <div className="flex-1">
-          <label className="block text-sm font-bold mb-1 text-gray-700">Longitude</label>
+          <label className="block text-sm font-bold mb-1 text-gray-700">Longitude (safi:longitude)</label>
           <input name="lng" type="number" step="any" value={formData.lng} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Ex: -9.243" />
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-bold mb-1 text-gray-700">Date de création (creationDate)</label>
+        <label className="block text-sm font-bold mb-1 text-gray-700">Année de construction (safi:annéeConstruction)</label>
         <input name="year" value={formData.year} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Ex: 1950" />
       </div>
 
       <div>
-        <label className="block text-sm font-bold mb-1 text-gray-700">URL de l'image</label>
-        <input name="imageUrl" type="url" value={formData.imageUrl} onChange={handleChange} required className="w-full border rounded p-2" placeholder="https://..." />
-      </div>
-
-      <div>
-        <label className="block text-sm font-bold mb-1 text-gray-700">Description</label>
+        <label className="block text-sm font-bold mb-1 text-gray-700">Description (dc:description)</label>
         <textarea name="description" value={formData.description} onChange={handleChange} required className="w-full border rounded p-2 h-24" placeholder="Description du lieu..." />
       </div>
 

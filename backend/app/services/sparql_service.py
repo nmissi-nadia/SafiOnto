@@ -19,18 +19,19 @@ class SPARQLService:
         query = """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-        PREFIX safionto: <http://example.org/safionto/> 
+        PREFIX safi: <http://ontologie.safi.ma/onto#> 
+        PREFIX dc: <http://purl.org/dc/elements/1.1/>
         
-        SELECT ?monument ?name ?type ?year ?imageUrl ?lat ?lng
+        SELECT ?monument ?name ?type ?year ?lat ?lng ?desc
         WHERE {
           ?monument rdf:type ?type .
-          ?type rdfs:subClassOf* safionto:Place .
+          ?type rdfs:subClassOf* safi:LieuGéographique .
           
-          OPTIONAL { ?monument safionto:placeName ?name . }
-          OPTIONAL { ?monument safionto:creationDate ?year . }
-          OPTIONAL { ?monument safionto:imageURL ?imageUrl . }
-          OPTIONAL { ?monument safionto:latitude ?lat . }
-          OPTIONAL { ?monument safionto:longitude ?lng . }
+          OPTIONAL { ?monument rdfs:label ?name . }
+          OPTIONAL { ?monument safi:annéeConstruction ?year . }
+          OPTIONAL { ?monument safi:latitude ?lat . }
+          OPTIONAL { ?monument safi:longitude ?lng . }
+          OPTIONAL { ?monument dc:description ?desc . }
         }
         """
         results = self.execute_query(query)
@@ -38,28 +39,30 @@ class SPARQLService:
         for result in results:
             lat = result.get("lat", {}).get("value")
             lng = result.get("lng", {}).get("value")
-            markers.append({
-                "uri": result.get("monument", {}).get("value"),
-                "name": result.get("name", {}).get("value", "Inconnu"),
-                "type": result.get("type", {}).get("value", "").split("#")[-1].split("/")[-1],
-                "year": result.get("year", {}).get("value", "Date inconnue"),
-                "imageUrl": result.get("imageUrl", {}).get("value"),
-                "lat": float(lat) if lat else None,
-                "lng": float(lng) if lng else None
-            })
+            if lat and lng:
+                markers.append({
+                    "uri": result.get("monument", {}).get("value"),
+                    "name": result.get("name", {}).get("value", "Inconnu"),
+                    "type": result.get("type", {}).get("value", "").split("#")[-1].split("/")[-1],
+                    "year": result.get("year", {}).get("value", "Date inconnue"),
+                    "description": result.get("desc", {}).get("value", ""),
+                    "lat": float(lat),
+                    "lng": float(lng)
+                })
         return markers
 
     def get_monument_details(self, uri: str):
         query = f"""
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        PREFIX safionto: <http://example.org/safionto/> 
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX safi: <http://ontologie.safi.ma/onto#> 
+        PREFIX dc: <http://purl.org/dc/elements/1.1/>
         
-        SELECT ?name ?type ?year ?imageUrl ?desc WHERE {{
+        SELECT ?name ?type ?year ?desc WHERE {{
           <{uri}> rdf:type ?type .
-          OPTIONAL {{ <{uri}> safionto:placeName ?name . }}
-          OPTIONAL {{ <{uri}> safionto:imageURL ?imageUrl . }}
-          OPTIONAL {{ <{uri}> safionto:description ?desc . }}
-          OPTIONAL {{ <{uri}> safionto:creationDate ?year . }}
+          OPTIONAL {{ <{uri}> rdfs:label ?name . }}
+          OPTIONAL {{ <{uri}> dc:description ?desc . }}
+          OPTIONAL {{ <{uri}> safi:annéeConstruction ?year . }}
         }}
         """
         results = self.execute_query(query)
@@ -71,27 +74,28 @@ class SPARQLService:
             "name": result.get("name", {}).get("value", "Inconnu"),
             "type": result.get("type", {}).get("value", "").split("#")[-1].split("/")[-1],
             "year": result.get("year", {}).get("value", "Date inconnue"),
-            "imageUrl": result.get("imageUrl", {}).get("value"),
             "description": result.get("desc", {}).get("value", "Aucune description")
         }
 
     def insert_monument(self, data: dict):
         uri_name = data['name'].replace(' ', '_').replace("'", "").replace('"', '')
-        uri = f"http://example.org/safionto/{uri_name}"
+        uri = f"http://ontologie.safi.ma/onto#{uri_name}"
         
         query = f"""
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-        PREFIX safionto: <http://example.org/safionto/> 
+        PREFIX safi: <http://ontologie.safi.ma/onto#> 
+        PREFIX dc: <http://purl.org/dc/elements/1.1/>
+        PREFIX owl: <http://www.w3.org/2002/07/owl#>
         
         INSERT DATA {{
-          <{uri}> rdf:type safionto:{data['type']} ;
-                  safionto:placeName "{data['name']}" ;
-                  safionto:creationDate "{data['year']}" ;
-                  safionto:description "{data['description']}" ;
-                  safionto:imageURL "{data['imageUrl']}" ;
-                  safionto:latitude {data['lat']} ;
-                  safionto:longitude {data['lng']} .
+          <{uri}> rdf:type safi:{data['type']}, owl:NamedIndividual ;
+                  rdfs:label "{data['name']}"@fr ;
+                  safi:annéeConstruction "{data['year']}" ;
+                  dc:description "{data['description']}"@fr ;
+                  safi:latitude {data['lat']} ;
+                  safi:longitude {data['lng']} .
         }}
         """
         sparql = SPARQLWrapper(settings.FUSEKI_URL)
