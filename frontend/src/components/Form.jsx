@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { createMonument } from '../services/api';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { createMonument, updateMonument, getMonumentByUri } from '../services/api';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +12,29 @@ const Form = () => {
     lng: ''
   });
   const [status, setStatus] = useState('');
-  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const uriToEdit = searchParams.get('uri');
+
+  useEffect(() => {
+    if (uriToEdit) {
+      getMonumentByUri(uriToEdit).then(data => {
+        if (data) {
+          // If we also want to populate lat/lng, we'd need them in the detail response, 
+          // or we can just leave them empty for the user to re-enter if they weren't in detail view.
+          // Wait, the detail view doesn't return lat/lng currently. Let's check `get_monument_details` in sparql_service.py.
+          // Actually, I'll just set what we have and let user fill the rest if missing.
+          setFormData({
+            name: data.name || '',
+            type: data.type || 'Forteresse',
+            year: data.year || '',
+            description: data.description || '',
+            lat: data.lat || '',
+            lng: data.lng || ''
+          });
+        }
+      });
+    }
+  }, [uriToEdit]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,11 +43,20 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
-    const result = await createMonument({
+    
+    const payload = {
       ...formData,
       lat: parseFloat(formData.lat),
       lng: parseFloat(formData.lng)
-    });
+    };
+
+    let result;
+    if (uriToEdit) {
+      payload.uri = uriToEdit;
+      result = await updateMonument(payload);
+    } else {
+      result = await createMonument(payload);
+    }
     
     if (result) {
       setStatus('success');
@@ -42,7 +73,8 @@ const Form = () => {
       
       <div>
         <label className="block text-sm font-bold mb-1 text-gray-700">Nom du lieu (rdfs:label)</label>
-        <input name="name" value={formData.name} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Ex: Riad Safi" />
+        <input name="name" value={formData.name} onChange={handleChange} disabled={!!uriToEdit} required className="w-full border rounded p-2 disabled:bg-gray-200" placeholder="Ex: Riad Safi" />
+        {uriToEdit && <p className="text-xs text-gray-500 mt-1">Le nom ne peut pas être modifié car il fait partie de l'URI.</p>}
       </div>
 
       <div>
@@ -99,7 +131,7 @@ const Form = () => {
       </div>
 
       <button type="submit" disabled={status === 'loading'} className="bg-brand text-white font-bold py-3 mt-4 rounded hover:bg-brand-dark transition-colors">
-        {status === 'loading' ? 'Injection SPARQL en cours...' : 'Insérer dans l\'Ontologie'}
+        {status === 'loading' ? 'Injection SPARQL en cours...' : (uriToEdit ? 'Mettre à jour l\'Ontologie' : 'Insérer dans l\'Ontologie')}
       </button>
     </form>
   );

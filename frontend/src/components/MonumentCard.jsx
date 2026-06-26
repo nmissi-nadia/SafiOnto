@@ -1,5 +1,6 @@
 import React from 'react';
-import { MapPin, Info, Clock, Building, Calendar } from 'lucide-react';
+import { MapPin, Info, Clock, Building, Calendar, Edit } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const MonumentCard = ({ monument }) => {
   if (!monument) return null;
@@ -42,9 +43,14 @@ const MonumentCard = ({ monument }) => {
         </div>
       </div>
         
-      <div className="mt-8 flex gap-2 items-center text-sm text-gray-500 bg-gray-100 p-3 rounded-lg overflow-hidden">
-        <Clock size={16} className="flex-shrink-0" />
-        <span className="truncate">URI Sémantique : <a href={monument.uri} className="text-blue-500 hover:underline" target="_blank" rel="noreferrer">{monument.uri}</a></span>
+      <div className="mt-8 flex gap-2 justify-between items-center bg-gray-100 p-3 rounded-lg overflow-hidden">
+        <div className="flex gap-2 items-center text-sm text-gray-500 overflow-hidden">
+          <Clock size={16} className="flex-shrink-0" />
+          <span className="truncate">URI Sémantique : <a href={monument.uri} className="text-blue-500 hover:underline" target="_blank" rel="noreferrer">{monument.uri}</a></span>
+        </div>
+        <Link to={`/expert?uri=${encodeURIComponent(monument.uri)}`} className="bg-brand text-white px-4 py-2 rounded text-sm font-bold flex items-center gap-2 hover:bg-brand-dark transition-colors whitespace-nowrap">
+          <Edit size={16} /> Modifier
+        </Link>
       </div>
     </div>
   );

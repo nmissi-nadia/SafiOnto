@@ -104,4 +104,47 @@ class SPARQLService:
         sparql.query()
         return {"uri": uri, "message": "Monument inserted successfully"}
 
+    def update_monument(self, data: dict):
+        uri = data['uri']
+        
+        # We delete all existing properties and insert new ones
+        query = f"""
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+        PREFIX safi: <http://ontologie.safi.ma/onto#> 
+        PREFIX dc: <http://purl.org/dc/elements/1.1/>
+        PREFIX owl: <http://www.w3.org/2002/07/owl#>
+        
+        DELETE {{
+          <{uri}> rdf:type ?type ;
+                  rdfs:label ?label ;
+                  safi:annéeConstruction ?year ;
+                  dc:description ?desc ;
+                  safi:latitude ?lat ;
+                  safi:longitude ?lng .
+        }}
+        INSERT {{
+          <{uri}> rdf:type safi:{data['type']}, owl:NamedIndividual ;
+                  rdfs:label "{data['name']}"@fr ;
+                  safi:annéeConstruction "{data['year']}" ;
+                  dc:description "{data['description']}"@fr ;
+                  safi:latitude {data['lat']} ;
+                  safi:longitude {data['lng']} .
+        }}
+        WHERE {{
+          <{uri}> rdf:type ?type .
+          OPTIONAL {{ <{uri}> rdfs:label ?label . }}
+          OPTIONAL {{ <{uri}> safi:annéeConstruction ?year . }}
+          OPTIONAL {{ <{uri}> dc:description ?desc . }}
+          OPTIONAL {{ <{uri}> safi:latitude ?lat . }}
+          OPTIONAL {{ <{uri}> safi:longitude ?lng . }}
+        }}
+        """
+        sparql = SPARQLWrapper(settings.FUSEKI_URL)
+        sparql.setQuery(query)
+        sparql.method = 'POST'
+        sparql.query()
+        return {"uri": uri, "message": "Monument updated successfully"}
+
 sparql_service = SPARQLService()

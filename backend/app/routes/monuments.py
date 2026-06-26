@@ -14,6 +14,16 @@ class MonumentCreate(BaseModel):
     lat: float
     lng: float
 
+class MonumentUpdate(BaseModel):
+    uri: str
+    name: str
+    type: str
+    year: str
+    description: str
+    imageUrl: str
+    lat: float
+    lng: float
+
 @router.get("/map")
 def get_map_data():
     try:
@@ -36,6 +46,14 @@ def get_monument_detail(uri: str):
 def create_monument(monument: MonumentCreate):
     try:
         result = sparql_service.insert_monument(monument.dict())
+        return {"status": "success", "data": result}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@router.put("/")
+def update_monument_endpoint(monument: MonumentUpdate):
+    try:
+        result = sparql_service.update_monument(monument.dict())
         return {"status": "success", "data": result}
     except Exception as e:
         return {"status": "error", "message": str(e)}

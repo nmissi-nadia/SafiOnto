@@ -47,3 +47,23 @@ export const createMonument = async (monumentData) => {
         return null;
     }
 };
+
+export const updateMonument = async (monumentData) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/monuments/`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(monumentData)
+        });
+        const result = await response.json();
+        if (result.status === "success") {
+            return result.data;
+        }
+        return null;
+    } catch (error) {
+        console.error("Error updating monument:", error);
+        return null;
+    }
+};
