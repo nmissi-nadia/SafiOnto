@@ -1,10 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import MapPage from './pages/MapPage';
 import MonumentDetail from './pages/MonumentDetail';
 import Form from './components/Form';
+import Login from './pages/Login';
 import { Shield } from 'lucide-react';
+
+const PrivateRoute = ({ children }) => {
+  const token = localStorage.getItem('safi_token');
+  return token ? children : <Navigate to="/login" />;
+};
 
 const AppContent = () => {
   const location = useLocation();
@@ -31,13 +37,16 @@ const AppContent = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/map" element={<div className="h-[calc(100vh-80px)]"><MapPage /></div>} />
           <Route path="/monument" element={<MonumentDetail />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/expert" element={
-            <div className="p-8 max-w-2xl mx-auto w-full mt-10">
-              <div className="bg-white rounded-xl p-8 shadow-xl">
-                <h2 className="text-2xl font-bold mb-6 text-brand">Ajouter / Mettre à jour un Monument</h2>
-                <Form />
+            <PrivateRoute>
+              <div className="p-8 max-w-2xl mx-auto w-full mt-10">
+                <div className="bg-white rounded-xl p-8 shadow-xl">
+                  <h2 className="text-2xl font-bold mb-6 text-brand">Ajouter / Mettre à jour un Monument</h2>
+                  <Form />
+                </div>
               </div>
-            </div>
+            </PrivateRoute>
           } />
         </Routes>
       </main>

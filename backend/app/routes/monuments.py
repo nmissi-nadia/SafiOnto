@@ -1,7 +1,8 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
 from typing import List
 from ..services.sparql_service import sparql_service
+from ..auth import get_current_user
 
 router = APIRouter()
 
@@ -43,7 +44,7 @@ def get_monument_detail(uri: str):
         return {"status": "error", "message": str(e)}
 
 @router.post("/")
-def create_monument(monument: MonumentCreate):
+def create_monument(monument: MonumentCreate, current_user: str = Depends(get_current_user)):
     try:
         result = sparql_service.insert_monument(monument.dict())
         return {"status": "success", "data": result}
@@ -51,7 +52,7 @@ def create_monument(monument: MonumentCreate):
         return {"status": "error", "message": str(e)}
 
 @router.put("/")
-def update_monument_endpoint(monument: MonumentUpdate):
+def update_monument_endpoint(monument: MonumentUpdate, current_user: str = Depends(get_current_user)):
     try:
         result = sparql_service.update_monument(monument.dict())
         return {"status": "success", "data": result}

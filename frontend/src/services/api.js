@@ -1,5 +1,34 @@
 const API_BASE_URL = 'http://localhost:8000/api';
 
+const getAuthHeaders = () => {
+    const token = localStorage.getItem('safi_token');
+    return token ? { 'Authorization': `Bearer ${token}` } : {};
+};
+
+export const login = async (username, password) => {
+    try {
+        const formData = new URLSearchParams();
+        formData.append('username', username);
+        formData.append('password', password);
+
+        const response = await fetch(`${API_BASE_URL}/auth/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: formData
+        });
+        if (response.ok) {
+            const data = await response.json();
+            return data.access_token;
+        }
+        return null;
+    } catch (error) {
+        console.error("Login error:", error);
+        return null;
+    }
+};
+
 export const fetchMonuments = async () => {
     try {
         const response = await fetch(`${API_BASE_URL}/monuments/map`);
@@ -34,9 +63,15 @@ export const createMonument = async (monumentData) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                ...getAuthHeaders()
             },
             body: JSON.stringify(monumentData)
         });
+        if (response.status === 401) {
+            localStorage.removeItem('safi_token');
+            window.location.href = '/login';
+            return null;
+        }
         const result = await response.json();
         if (result.status === "success") {
             return result.data;
@@ -54,9 +89,15 @@ export const updateMonument = async (monumentData) => {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
+                ...getAuthHeaders()
             },
             body: JSON.stringify(monumentData)
         });
+        if (response.status === 401) {
+            localStorage.removeItem('safi_token');
+            window.location.href = '/login';
+            return null;
+        }
         const result = await response.json();
         if (result.status === "success") {
             return result.data;
