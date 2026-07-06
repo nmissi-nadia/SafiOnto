@@ -19,6 +19,8 @@ services:
     environment:
       - FUSEKI_URL=http://fuseki:3030/safi/sparql
       - FUSEKI_UPDATE_URL=http://fuseki:3030/safi/update
+    env_file:
+      - ./backend/.env
     depends_on:
       - fuseki
 
