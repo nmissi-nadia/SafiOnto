@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
@@ -7,9 +8,12 @@ class Settings(BaseSettings):
     FUSEKI_UPDATE_URL: str = "http://fuseki:3030/safi/update"
     
     # Auth
-    SECRET_KEY: str = "votre_cle_secrete_tres_securisee_ici_123"
+    SECRET_KEY: str = "super_secret_safi_key_for_jwt_2026"
     ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 # 1 day
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 120
+    
+    # IA Configuration
+    GEMINI_API_KEY: str = ""
     
     # Admin Credentials
     ADMIN_USERNAME: str = "admin"

@@ -5,6 +5,7 @@ import MapPage from './pages/MapPage';
 import MonumentDetail from './pages/MonumentDetail';
 import Form from './components/Form';
 import Login from './pages/Login';
+import Chatbot from './components/Chatbot';
 import { Shield } from 'lucide-react';
 
 const PrivateRoute = ({ children }) => {
@@ -50,6 +51,7 @@ const AppContent = () => {
           } />
         </Routes>
       </main>
+      <Chatbot />
     </div>
   );
 };
