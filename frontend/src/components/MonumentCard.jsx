@@ -3,6 +3,8 @@ import { MapPin, Info, Clock, Building, Calendar, Edit } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const MonumentCard = ({ monument }) => {
+  const isAuthenticated = !!localStorage.getItem('safi_token');
+
   if (!monument) return null;
 
   return (
@@ -48,9 +50,11 @@ const MonumentCard = ({ monument }) => {
           <Clock size={16} className="flex-shrink-0" />
           <span className="truncate">URI Sémantique : <a href={monument.uri} className="text-blue-500 hover:underline" target="_blank" rel="noreferrer">{monument.uri}</a></span>
         </div>
-        <Link to={`/expert?uri=${encodeURIComponent(monument.uri)}`} className="bg-brand text-white px-4 py-2 rounded text-sm font-bold flex items-center gap-2 hover:bg-brand-dark transition-colors whitespace-nowrap">
-          <Edit size={16} /> Modifier
-        </Link>
+        {isAuthenticated && (
+          <Link to={`/expert?uri=${encodeURIComponent(monument.uri)}`} className="bg-brand text-white px-4 py-2 rounded text-sm font-bold flex items-center gap-2 hover:bg-brand-dark transition-colors whitespace-nowrap">
+            <Edit size={16} /> Modifier
+          </Link>
+        )}
       </div>
     </div>
   );
