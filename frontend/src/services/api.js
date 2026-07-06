@@ -45,14 +45,23 @@ export const fetchMonuments = async () => {
 
 export const getMonumentByUri = async (uri) => {
     try {
-        const response = await fetch(`${API_BASE_URL}/monuments/detail?uri=${encodeURIComponent(uri)}`);
-        const result = await response.json();
-        if (result.status === "success") {
-            return result.data;
-        }
-        return null;
+        const response = await fetch(`${API_BASE_URL}/monuments/details?uri=${encodeURIComponent(uri)}`);
+        if (!response.ok) return null;
+        return await response.json();
     } catch (error) {
         console.error("Failed to fetch monument detail:", error);
+        return null;
+    }
+};
+
+export const getMonumentNarrative = async (uri) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/monuments/narrative?uri=${encodeURIComponent(uri)}`);
+        if (!response.ok) return null;
+        const data = await response.json();
+        return data.narrative;
+    } catch (error) {
+        console.error("Failed to fetch monument narrative:", error);
         return null;
     }
 };

@@ -1,9 +1,23 @@
-import React from 'react';
-import { MapPin, Info, Clock, Building, Calendar, Edit } from 'lucide-react';
+import React, { useState } from 'react';
+import { MapPin, Info, Clock, Building, Calendar, Edit, Sparkles, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getMonumentNarrative } from '../services/api';
 
 const MonumentCard = ({ monument }) => {
   const isAuthenticated = !!localStorage.getItem('safi_token');
+  const [narrative, setNarrative] = useState(null);
+  const [loadingNarrative, setLoadingNarrative] = useState(false);
+
+  const handleGenerateNarrative = async () => {
+    setLoadingNarrative(true);
+    const result = await getMonumentNarrative(monument.uri);
+    if (result) {
+      setNarrative(result);
+    } else {
+      setNarrative("Désolé, l'IA n'a pas pu générer le récit à partir des données.");
+    }
+    setLoadingNarrative(false);
+  };
 
   if (!monument) return null;
 
@@ -36,12 +50,34 @@ const MonumentCard = ({ monument }) => {
 
       <div className="mt-6">
         <div className="bg-brand-light/20 p-6 rounded-lg border border-brand-light/40">
-          <h3 className="text-sm font-bold text-brand-dark uppercase tracking-wider mb-3 flex items-center gap-2">
-            <Info size={18} /> Histoire & Description
-          </h3>
-          <p className="text-gray-700 leading-relaxed text-lg">
-            {monument.description}
-          </p>
+          <div className="flex justify-between items-start mb-3">
+            <h3 className="text-sm font-bold text-brand-dark uppercase tracking-wider flex items-center gap-2">
+              <Info size={18} /> Histoire & Description
+            </h3>
+            {!narrative && !loadingNarrative && (
+              <button 
+                onClick={handleGenerateNarrative}
+                className="text-xs bg-brand text-white px-3 py-1.5 rounded-full flex items-center gap-1 hover:bg-brand-dark transition-colors shadow-sm"
+              >
+                <Sparkles size={14} /> Générer un récit avec l'IA
+              </button>
+            )}
+          </div>
+          
+          {loadingNarrative ? (
+            <div className="flex items-center gap-2 text-brand font-medium p-4 justify-center">
+              <Loader2 className="animate-spin" size={20} />
+              SafiBot rédige l'histoire...
+            </div>
+          ) : narrative ? (
+            <div className="prose prose-sm md:prose-base text-gray-800 leading-relaxed max-w-none">
+              <p className="whitespace-pre-line">{narrative}</p>
+            </div>
+          ) : (
+            <p className="text-gray-700 leading-relaxed text-lg">
+              {monument.description || "Aucune description basique disponible."}
+            </p>
+          )}
         </div>
       </div>
         

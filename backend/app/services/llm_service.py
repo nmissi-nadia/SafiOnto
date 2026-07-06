@@ -55,4 +55,22 @@ Instructions :
         response = self.model.generate_content(prompt)
         return response.text.strip()
 
+    def generate_monument_narrative(self, raw_data: dict) -> str:
+        data_str = json.dumps(raw_data, indent=2, ensure_ascii=False)
+        prompt = f"""
+Tu es un guide historique et culturel expert de la ville de Safi (Maroc).
+Ton rôle est de prendre des données brutes issues d'une ontologie sémantique concernant un monument spécifique, et de les transformer en un texte narratif fluide, riche et captivant (en français).
+
+Voici les données brutes (propriétés et relations) extraites pour ce monument :
+{data_str}
+
+Instructions :
+1. Rédige un ou deux beaux paragraphes (environ 4 à 5 phrases) qui racontent l'histoire et les caractéristiques de ce lieu.
+2. Inclus de manière naturelle TOUTES les informations factuelles présentes dans les données (nom, type, année de construction, architecte, description, lieux à proximité, etc.).
+3. Ne mentionne pas que tu as lu des données JSON ou une ontologie. Parle directement comme si c'était une encyclopédie ou un guide touristique haut de gamme.
+4. Si les données sont très limitées, étoffe légèrement avec ton savoir général sur Safi, mais en restant focalisé sur ce monument.
+"""
+        response = self.model.generate_content(prompt)
+        return response.text.strip()
+
 llm_service = LLMService()

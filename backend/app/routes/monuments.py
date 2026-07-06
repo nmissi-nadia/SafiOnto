@@ -1,7 +1,8 @@
 from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 from ..services.sparql_service import sparql_service
+from ..services.llm_service import llm_service
 from ..auth import get_current_user
 
 router = APIRouter()
@@ -42,6 +43,21 @@ def get_monument_detail(uri: str):
         return {"status": "success", "data": details}
     except Exception as e:
         return {"status": "error", "message": str(e)}
+
+@router.get("/narrative")
+def get_monument_narrative(uri: str):
+    # Fetch raw data
+    details = sparql_service.get_monument_details(uri)
+    if not details:
+        raise HTTPException(status_code=404, detail="Monument not found")
+    
+    # Generate narrative with LLM
+    try:
+        narrative = llm_service.generate_monument_narrative(details)
+        return {"narrative": narrative}
+    except Exception as e:
+        print(f"Error generating narrative: {e}")
+        raise HTTPException(status_code=500, detail="Error generating narrative")
 
 @router.post("/")
 def create_monument(monument: MonumentCreate, current_user: str = Depends(get_current_user)):
