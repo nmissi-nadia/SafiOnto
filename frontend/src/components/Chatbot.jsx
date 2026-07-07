@@ -35,7 +35,7 @@ const Chatbot = () => {
 
   if (!isOpen) {
     return (
-      <button 
+      <button
         onClick={() => setIsOpen(true)}
         className="fixed bottom-6 right-6 bg-brand text-white p-4 rounded-full shadow-2xl hover:bg-brand-dark transition-all transform hover:scale-110 z-50 flex items-center justify-center"
       >
@@ -78,17 +78,17 @@ const Chatbot = () => {
 
       {/* Input */}
       <form onSubmit={sendMessage} className="p-3 bg-white border-t border-gray-200 flex gap-2">
-        <input 
-          type="text" 
-          value={input} 
+        <input
+          type="text"
+          value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Posez votre question..." 
+          placeholder="Posez votre question..."
           className="flex-1 bg-gray-100 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand/50"
           disabled={loading}
         />
-        <button 
-          type="submit" 
-          disabled={loading || !input.trim()} 
+        <button
+          type="submit"
+          disabled={loading || !input.trim()}
           className="bg-brand text-white p-2 rounded-full hover:bg-brand-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
         >
           <Send size={18} />

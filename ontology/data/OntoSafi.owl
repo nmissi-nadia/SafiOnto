@@ -1,0 +1,1326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:safi="http://ontologie.safi.ma/onto#"
+>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Restaurant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Restaurant</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Restauration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#GlassHouse">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#CaféRestaurant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Glass House</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Glass House.jpg</safi:aPourImage>
+    <safi:adresse>Av. Youba, Ville Nouvelle, Safi</safi:adresse>
+    <safi:cuisineProposée>Marocaine + Méditerranéenne + Café</safi:cuisineProposée>
+    <safi:horaires>07h00-23h00 (lun-dim)</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2950</safi:latitude>
+    <safi:livraison rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</safi:livraison>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2313</safi:longitude>
+    <safi:noteMoyenne>4.2-4.8/5</safi:noteMoyenne>
+    <safi:prixMoyenRepas>1-50 DH</safi:prixMoyenRepas>
+    <safi:téléphone>+212 5246 10088</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#MinaretAlmohade">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Minaret"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Minaret Almohade</rdfs:label>
+    <safi:aConstruitPar rdf:resource="http://ontologie.safi.ma/onto#Almohades"/>
+    <safi:annéeConstruction>1184-1199 (Almohades) / Achevé XIVe s. (Mérinides)</safi:annéeConstruction>
+    <safi:dernièreRestauration>2013-2015</safi:dernièreRestauration>
+    <safi:estLiéHistoriquementÀ rdf:resource="http://ontologie.safi.ma/onto#GrandeMosquée"/>
+    <safi:estSituéDans rdf:resource="http://ontologie.safi.ma/onto#MédinaAncienne"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2965</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.241</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#MaraboutSidiElJazouli">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Mausolée"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Marabout Sidi El Jazouli</rdfs:label>
+    <safi:aConstruitPar rdf:resource="http://ontologie.safi.ma/onto#Ahmad_al_Araj"/>
+    <safi:annéeConstruction>1523-1524</safi:annéeConstruction>
+    <safi:classéUNESCO rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</safi:classéUNESCO>
+    <safi:dernièreRestauration>2023-2025 (Ministère des Habous)</safi:dernièreRestauration>
+    <safi:estSituéDans rdf:resource="http://ontologie.safi.ma/onto#MédinaAncienne"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2994</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2372</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#ÉcoleYoussefIbnTachfine">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#ÉcolePrimaire"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">École Youssef Ibn Tachfine</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Youssef Ibn Tachfine.jpg</safi:aPourImage>
+    <safi:adresse>Quartier El Kors, Safi</safi:adresse>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3006</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2272</safi:longitude>
+    <safi:typeGestion>Public/Semi-public</safi:typeGestion>
+    <safi:téléphone>+212 661 043 432</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#SidiBoudheb">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Mausolée"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Sidi Boudheb</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Sidi Boudheb.jpg</safi:aPourImage>
+    <safi:estSituéDans rdf:resource="http://ontologie.safi.ma/onto#MédinaAncienne"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2993</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2431</safi:longitude>
+    <safi:spécialités>Marabout, lieu de mémoire locale</safi:spécialités>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Attijariwafa">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Banque"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Attijariwafa Bank (Agence Safi Marjane)</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Attijariwafa bank.jpg</safi:aPourImage>
+    <safi:adresse>Route de Marrakech (près Marjane), Safi</safi:adresse>
+    <safi:horaires>Lun-Ven 09h15-15h30 (DAB 24h/24)</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.29819476911823</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.215632816284636</safi:longitude>
+    <safi:téléphone>+212 524 62 80 69</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#ENSASafi">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#ÉtablissementSupérieur"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">ENSA Safi (École Nationale des Sciences Appliquées)</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/ENSA École Nationale des Sciences Appliquées_Safi.jpg</safi:aPourImage>
+    <safi:annéeConstruction>2003</safi:annéeConstruction>
+    <safi:gèreParInstitution rdf:resource="http://ontologie.safi.ma/onto#UCA"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3267</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2636</safi:longitude>
+    <safi:typeGestion>Public</safi:typeGestion>
+    <safi:téléphone>+212 524 66 91 55</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Mausolée">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Mausolée / Marabout</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#PatrimoineReligieux"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Santé">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Établissement de Santé</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#AteliersCollinePotiers">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#FormationArtisanale"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Ateliers de Poterie — Colline des Potiers</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Colline des Potiers.jpg</safi:aPourImage>
+    <safi:annéeConstruction>~1920</safi:annéeConstruction>
+    <safi:estPartieIntégranteDe rdf:resource="http://ontologie.safi.ma/onto#CollinePotiers_Site"/>
+    <safi:horaires>09h00-18h00 (tous les jours)</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3014</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.238690012137388</safi:longitude>
+    <safi:spécialités>Tournage, décoration, cuisson céramique</safi:spécialités>
+    <safi:typeGestion>Mixte (ouvert au public)</safi:typeGestion>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#HôtelAtlantide">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Hôtel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Hôtel de l'Atlantide</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Hôtel de l'Atlantide.jpg</safi:aPourImage>
+    <safi:annéeConstruction>XXe siècle (Art déco)</safi:annéeConstruction>
+    <safi:horaires>24h/24</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2944</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.238502086825273</safi:longitude>
+    <safi:prixMoyenNuit>350-600 DH (estimation historique)</safi:prixMoyenNuit>
+    <safi:typeGestion>Racheté 2025 par SHB/UM6P — statut incertain</safi:typeGestion>
+    <safi:téléphone>+212 524 668 490</safi:téléphone>
+    <safi:étoiles rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</safi:étoiles>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#ConservatoireMusique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Conservatoire de Musique</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Enseignement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#KsarElBahr">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Forteresse"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Ksar El Bahr (Château de la Mer)</rdfs:label>
+    <safi:aConstruitPar rdf:resource="http://ontologie.safi.ma/onto#Portugais_ManuelIer"/>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Qasr El Bahr.jpg</safi:aPourImage>
+    <safi:annéeClassementUNESCO rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">2025</safi:annéeClassementUNESCO>
+    <safi:annéeConstruction>1516 (Feitoria) → ~1523</safi:annéeConstruction>
+    <safi:classéUNESCO rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</safi:classéUNESCO>
+    <safi:dernièreRestauration>2023-2026 (projet de sauvetage d'urgence)</safi:dernièreRestauration>
+    <safi:estSituéDans rdf:resource="http://ontologie.safi.ma/onto#MédinaAncienne"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.29743391541442</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.244174461401332</safi:longitude>
+    <safi:statutNational>Monument Historique Classé (Patrimoine National)</safi:statutNational>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Hébergement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Hébergement</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#horaires">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">horaires d'ouverture</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#SidiBouzid">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#PlageEsplanade"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Sidi Bouzid (Esplanade / Plage)</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Sidi Bouzid.jpg</safi:aPourImage>
+    <safi:annéeConstruction>Début 2000s</safi:annéeConstruction>
+    <safi:dernièreRestauration>2019-2021</safi:dernièreRestauration>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.32355366773446</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.260264918338384</safi:longitude>
+    <safi:typeGestion>Public</safi:typeGestion>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Saadiens">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Dynastie"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Saadiens</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#PatrimoineReligieux">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Patrimoine Religieux</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Patrimoine"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#FondoukElGherba">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Fondouk El-Gherba</rdfs:label>
+    <safi:annéeConstruction>XVIIIe siècle</safi:annéeConstruction>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2972</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2405</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#LOcéan">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Restaurant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">L'Océan</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/L'Océan.jpg</safi:aPourImage>
+    <safi:adresse>44 Route De Sidi Bouzid, R301</safi:adresse>
+    <safi:horaires>06h00-01h00 (tous les jours)</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.30687908458393</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.216072237742813</safi:longitude>
+    <safi:prixMoyenRepas>1-50 DH</safi:prixMoyenRepas>
+    <safi:téléphone>+212 523 355 582</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#FormationArtisanale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Formation Artisanale</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Enseignement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#BabChaaba">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#PorteMédina"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Bab Chaâba</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Bab Chaaba.jpg</safi:aPourImage>
+    <safi:annéeConstruction>XIIe siècle / Renforcée ~1510 (Portugais)</safi:annéeConstruction>
+    <safi:classéUNESCO rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</safi:classéUNESCO>
+    <safi:dernièreRestauration>2023-2024 (restauration urgence inondations)</safi:dernièreRestauration>
+    <safi:estPartieIntégranteDe rdf:resource="http://ontologie.safi.ma/onto#RempartsMédina"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3001</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.239826500409372</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#ZaouiadeMoulayAbdelkaderJilani">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Zaouia de Moulay Abdelkader Jilani</rdfs:label>
+    <safi:annéeConstruction>XVIIe siècle</safi:annéeConstruction>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2978</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2412</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#SynagoguedelaMedinaMellah">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Synagogue de la Médina (Mellah)</rdfs:label>
+    <safi:annéeConstruction>XIXe siècle</safi:annéeConstruction>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2955</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2425</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#PréfecturePolice">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#InstitutionSécurité"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Préfecture de Police de Safi</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/La Préfecture de Police.jpg</safi:aPourImage>
+    <safi:annéeConstruction>1920-1930 (Protectorat)</safi:annéeConstruction>
+    <safi:dernièreRestauration>2022</safi:dernièreRestauration>
+    <safi:horaires>Lun-Jeu 08h30-16h30 / Ven 08h30-16h30</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.29639049290145</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.23371083368102</safi:longitude>
+    <safi:spécialités>CNIE, Passeport biométrique, Certificat de résidence</safi:spécialités>
+    <safi:téléphone>+212 524 62 25 77</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#HôtelFarah">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Hôtel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Golden Tulip Farah Safi</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/L'Hôtel Golden Tulip Farah Safi (Hôtel Farah).jpg</safi:aPourImage>
+    <safi:annéeConstruction>1980</safi:annéeConstruction>
+    <safi:horaires>24h/24</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.295811003077</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.238744591351715</safi:longitude>
+    <safi:prixMoyenNuit>850-1400 DH</safi:prixMoyenNuit>
+    <safi:typeGestion>Privé (Farah Maghreb / CMKD)</safi:typeGestion>
+    <safi:téléphone>+212 524 464 299</safi:téléphone>
+    <safi:étoiles rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</safi:étoiles>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#BanquePopulaire">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Banque"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Banque Populaire (Biada)</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/banque populaire.jpg</safi:aPourImage>
+    <safi:adresse>Rue Atlas, Quartier Biada, Safi</safi:adresse>
+    <safi:horaires>Lun-Ven 08h15-15h45 (DAB 24h/24)</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3008599611413</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.220133201659221</safi:longitude>
+    <safi:téléphone>+212 524 66 80 66</safi:téléphone>
+    <rdfs:comment xml:lang="fr">⚠ Longitude -8.9941 suspecte — à vérifier</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Tasshilat">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#ServiceProximité"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Tasshilat Plateau</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/tashilat.jpg</safi:aPourImage>
+    <safi:adresse>N°19 Av. de la Liberté, Quartier Plateau, Safi</safi:adresse>
+    <safi:horaires>09h00-13h00 / 15h00-19h30</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.295206163852434</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.22904413675142</safi:longitude>
+    <safi:téléphone>+212 679 724 653</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#PlageEsplanade">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Plage / Esplanade</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#CultureLoisirs"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#EntitéSafi">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Entité Safi</rdfs:label>
+    <rdfs:comment xml:lang="fr">Classe racine de toutes les entités de l'ontologie de Safi</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Port">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Port</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#PatrimoineÉconomique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#PharmacieABC">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Pharmacie"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Pharmacie ABC</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Pharmacie ABC.jpg</safi:aPourImage>
+    <safi:annéeConstruction>Années 1990-2000</safi:annéeConstruction>
+    <safi:horaires>Lun-Ven 08h30-13h00/15h00-20h30 / Sam 09h00-13h30</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2988</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.227793404845553</safi:longitude>
+    <safi:téléphone>+212 524 463 322</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Acteur">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Acteur</rdfs:label>
+    <rdfs:comment xml:lang="fr">Personne morale ou physique impliquée dans la construction, gestion ou restauration d'un lieu</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#EntitéSafi"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#lat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#EntreprisePrivée">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Entreprise Privée</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Acteur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#DarAlKaidAyadi">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Dar Al Kaid Ayadi</rdfs:label>
+    <safi:annéeConstruction>XXe siècle</safi:annéeConstruction>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2988</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2418</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#GrandePharmacieFrançaise">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Pharmacie"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Grande Pharmacie Française</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Grande Pharmacie Française.jpg</safi:aPourImage>
+    <safi:annéeConstruction>1920-1930 (Protectorat)</safi:annéeConstruction>
+    <safi:gèreParInstitution rdf:resource="http://ontologie.safi.ma/onto#Famille_Benkaddour"/>
+    <safi:horaires>Lun-Ven 08h30-12h30/15h00-20h00 / Sam 08h30-12h30</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.296659047173094</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.243791176010314</safi:longitude>
+    <safi:téléphone>+212 524 622 369</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#FPS">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#ÉtablissementSupérieur"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Faculté Polydisciplinaire de Safi (FPS)</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Faculté Poly-disciplinaire de Safi.jpg</safi:aPourImage>
+    <safi:annéeConstruction>2003</safi:annéeConstruction>
+    <safi:gèreParInstitution rdf:resource="http://ontologie.safi.ma/onto#UCA"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.32874516093609</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.267837733679517</safi:longitude>
+    <safi:siteWeb rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://fps.uca.ma</safi:siteWeb>
+    <safi:typeGestion>Public</safi:typeGestion>
+    <safi:téléphone>+212 524 66 93 54</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#annéeConstruction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">année de construction</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#PlaceTajineGéant">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#EspacePublic"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Place du Tajine Géant (Place Mohammed V)</rdfs:label>
+    <safi:aConstruitPar rdf:resource="http://ontologie.safi.ma/onto#CollectifPotiers"/>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Tajine.jpg</safi:aPourImage>
+    <safi:annéeConstruction>1999</safi:annéeConstruction>
+    <safi:dernièreRestauration>2020</safi:dernièreRestauration>
+    <safi:estSituéDans rdf:resource="http://ontologie.safi.ma/onto#MédinaAncienne"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.295006934857234</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.23381161833974</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Lycée">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Lycée</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Enseignement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#HôpitalAkdital">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#HôpitalPrivé"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Hôpital Privé Akdital</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/AKDITAL Clinique de Spécialités.jpg</safi:aPourImage>
+    <safi:annéeConstruction>2022</safi:annéeConstruction>
+    <safi:gèreParInstitution rdf:resource="http://ontologie.safi.ma/onto#GroupeAkdital"/>
+    <safi:horaires>24h/24</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.29913674929351</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.221888920186965</safi:longitude>
+    <safi:spécialités>Hôpital multidisciplinaire privé</safi:spécialités>
+    <safi:typeGestion>Privé</safi:typeGestion>
+    <safi:téléphone>+212 524 620 808</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#MuséeCéramique">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Musée"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Musée National de la Céramique</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Musée National de la Céramique.jpg</safi:aPourImage>
+    <safi:annéeConstruction>Fondé 1990 à Kechla / Transféré ~2014 à Cité des Arts</safi:annéeConstruction>
+    <safi:classéUNESCO rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</safi:classéUNESCO>
+    <safi:dernièreRestauration>2023-2025</safi:dernièreRestauration>
+    <safi:estLiéHistoriquementÀ rdf:resource="http://ontologie.safi.ma/onto#DarSoltane_Kechla"/>
+    <safi:estPartieIntégranteDe rdf:resource="http://ontologie.safi.ma/onto#CitéDesArts"/>
+    <safi:gèreParInstitution rdf:resource="http://ontologie.safi.ma/onto#ÉtatMarocain"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2967</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2370</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Forteresse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Forteresse</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#PatrimoineMilitaire"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Marjane">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#GrandeSurface"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Marjane Safi</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/marjane.jpg</safi:aPourImage>
+    <safi:horaires>09h00-22h00 (tous les jours)</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2981</safi:latitude>
+    <safi:livraison rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</safi:livraison>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2156</safi:longitude>
+    <safi:siteWeb rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.marjane.ma</safi:siteWeb>
+    <safi:spécialités>Supermarché, centre de shopping, espace commercial</safi:spécialités>
+    <safi:téléphone>+212 802 022 050</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Remparts">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Remparts</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#PatrimoineMilitaire"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Patrimoine">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Patrimoine</rdfs:label>
+    <rdfs:comment xml:lang="fr">Lieu à valeur patrimoniale historique, culturelle ou architecturale</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#GareONCF">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#GareFerroviaire"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Gare ONCF de Safi</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Gare ONCF.jpg</safi:aPourImage>
+    <safi:adresse>Av. Sidi Ouassel, Safi 46000</safi:adresse>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2858</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2440</safi:longitude>
+    <safi:siteWeb rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.oncf-voyages.ma</safi:siteWeb>
+    <safi:spécialités>Safi ↔ Benguerir / Connexions Casablanca, Rabat, Marrakech</safi:spécialités>
+    <safi:téléphone>+212 537 275 800</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#GareRoutière">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#GareRoutière"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Gare Routière</rdfs:label>
+    <rdfs:label xml:lang="fr">Gare Routière des Voyageurs</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Gare Routiere des Voyageurs.jpg</safi:aPourImage>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2894</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2355</safi:longitude>
+    <safi:spécialités>Bus nationaux (Marrakech, Casablanca, Agadir, Essaouira…)</safi:spécialités>
+    <safi:téléphone>+212 524 62 15 99</safi:téléphone>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Transport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#BabElKouass">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#PorteMédina"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Bab El Kouass (La Porte des Arches)</rdfs:label>
+    <safi:aConstruitPar rdf:resource="http://ontologie.safi.ma/onto#Almohades"/>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Bab Khouas (La Porte des Arches).jpg</safi:aPourImage>
+    <safi:annéeConstruction>XIIe siècle (Almohades) / Renforcé XVIe s.</safi:annéeConstruction>
+    <safi:dernièreRestauration>2019-2022</safi:dernièreRestauration>
+    <safi:estPartieIntégranteDe rdf:resource="http://ontologie.safi.ma/onto#RempartsMédina"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.30085052610904</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.241029322614976</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#StadeElMassira">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#EquipementSportif"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Stade El Massira</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Stade El Massira.jpg</safi:aPourImage>
+    <safi:adresse>Av. Moulay Youssef, Safi</safi:adresse>
+    <safi:annéeConstruction>1936 (inauguration ~1940)</safi:annéeConstruction>
+    <safi:dernièreRestauration>2020</safi:dernièreRestauration>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3004</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2294</safi:longitude>
+    <safi:spécialités>Football — Club résident: Olympic Club de Safi (OCS)</safi:spécialités>
+    <safi:typeGestion>Public</safi:typeGestion>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#statutNational">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">statut national</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#prixMoyenRepas">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">prix moyen par repas (DH)</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#Restauration"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#BorjNord">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Borj Nord</rdfs:label>
+    <safi:annéeConstruction>XVIe siècle</safi:annéeConstruction>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.305</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.235</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#RooftopRestaurant">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Restaurant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Rooftop Restaurant</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Rooftop Restaurant.jpg</safi:aPourImage>
+    <safi:adresse>11 Av. Allal Ben Abdellah, Corniche, Safi 46000</safi:adresse>
+    <safi:cuisineProposée>Marocaine + Internationale + Méditerranéenne</safi:cuisineProposée>
+    <safi:horaires>10h00-16h30 / 18h00-23h00 (lun-dim)</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2958</safi:latitude>
+    <safi:livraison rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</safi:livraison>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2440</safi:longitude>
+    <safi:noteMoyenne>4.2-4.9/5</safi:noteMoyenne>
+    <safi:prixMoyenRepas>50-300 DH</safi:prixMoyenRepas>
+    <safi:téléphone>+212 606 905 739</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#estPartieIntégranteDe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="fr">est partie intégrante de</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:subPropertyOf rdf:resource="http://ontologie.safi.ma/onto#estLiéHistoriquementÀ"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#MaraboutdeSidiBouzid">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Marabout de Sidi Bouzid</rdfs:label>
+    <safi:annéeConstruction>XIXe siècle</safi:annéeConstruction>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.315</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.255</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#aPourImage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">a pour image</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#DarSoltane_Kechla">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Forteresse"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Dar Soltane (Kechla / Borj Dar)</rdfs:label>
+    <safi:aConstruitPar rdf:resource="http://ontologie.safi.ma/onto#Almohades"/>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Dar Soltan.jpg</safi:aPourImage>
+    <safi:annéeClassementUNESCO rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">2025</safi:annéeClassementUNESCO>
+    <safi:annéeConstruction>XIIe-XIIIe siècle (Almohades) / Réaménagée 1508-1541 (Portugais)</safi:annéeConstruction>
+    <safi:classéUNESCO rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</safi:classéUNESCO>
+    <safi:dernièreRestauration>2023-2026 (programme de réhabilitation)</safi:dernièreRestauration>
+    <safi:estLiéHistoriquementÀ rdf:resource="http://ontologie.safi.ma/onto#MuséeCéramique"/>
+    <safi:estSituéDans rdf:resource="http://ontologie.safi.ma/onto#MédinaAncienne"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2990</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2369</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#longitude">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">longitude</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#long"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#RempartsMédina">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Remparts"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Remparts de la Médina</rdfs:label>
+    <safi:aConstruitPar rdf:resource="http://ontologie.safi.ma/onto#Almohades"/>
+    <safi:annéeConstruction>Fin XIIe s. (Almohades) / Reconstruction 1510-1540 (Portugais)</safi:annéeConstruction>
+    <safi:dernièreRestauration>2025</safi:dernièreRestauration>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2989</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2425</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Bibliothèque">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Bibliothèque"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Bibliothèque / Médiathèque</rdfs:label>
+    <rdfs:label xml:lang="fr">Bibliothèque Régionale / Médiathèque</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Bibliothèque régionale.jpg</safi:aPourImage>
+    <safi:annéeConstruction>2014</safi:annéeConstruction>
+    <safi:estPartieIntégranteDe rdf:resource="http://ontologie.safi.ma/onto#CitéDesArts"/>
+    <safi:horaires>09h00-18h00</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2974</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2376</safi:longitude>
+    <safi:spécialités>Lecture, recherche, numérique, archives locales</safi:spécialités>
+    <safi:typeGestion>Public</safi:typeGestion>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#CultureLoisirs"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#CourAppel">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#InstitutionJudiciaire"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Cour d'Appel (Palais de Justice)</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Cour d'Appel (Palais de Justice).jpg</safi:aPourImage>
+    <safi:annéeConstruction>1920-1930 (Protectorat)</safi:annéeConstruction>
+    <safi:dernièreRestauration>2020</safi:dernièreRestauration>
+    <safi:horaires>Lun-Ven 08h30-16h30</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2939</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2426</safi:longitude>
+    <safi:siteWeb rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.justice.gov.ma</safi:siteWeb>
+    <safi:spécialités>Appels civils, pénaux, familiaux, commerciaux</safi:spécialités>
+    <safi:téléphone>+212 524 62 36 56</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#SiègeOCP">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#EntreprisePublique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Siège Régional OCP</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Le Siège Régional de l'OCP (Office Chérifien des Phosphates).jpg</safi:aPourImage>
+    <safi:annéeConstruction>1960-1975</safi:annéeConstruction>
+    <safi:gèreParInstitution rdf:resource="http://ontologie.safi.ma/onto#OCP"/>
+    <safi:horaires>08h00-17h00</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2246</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2480</safi:longitude>
+    <safi:siteWeb rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.ocpgroup.ma</safi:siteWeb>
+    <safi:spécialités>Phosphates, acide phosphorique, engrais</safi:spécialités>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#CitéDesArts">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#CentreArts"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Cité des Arts et de la Culture</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/La Cité des Arts et de la Culture.jpg</safi:aPourImage>
+    <safi:annéeConstruction>2011</safi:annéeConstruction>
+    <safi:dernièreRestauration>2021-2022</safi:dernièreRestauration>
+    <safi:gèreParInstitution rdf:resource="http://ontologie.safi.ma/onto#ÉtatMarocain"/>
+    <safi:horaires>08h00-20h00 (lun-ven)</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2967</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2370</safi:longitude>
+    <safi:spécialités>Théâtre, salles d'exposition, salles de conférence, espaces verts</safi:spécialités>
+    <safi:typeGestion>Public</safi:typeGestion>
+    <safi:téléphone>+212 524 46 38 95</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#HôtelAssif">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Hôtel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Hôtel Assif</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Hôtel Assif.jpg</safi:aPourImage>
+    <safi:annéeConstruction>1987</safi:annéeConstruction>
+    <safi:horaires>24h/24</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.29402791307412</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.232916118339732</safi:longitude>
+    <safi:prixMoyenNuit>350-500 DH</safi:prixMoyenNuit>
+    <safi:typeGestion>Privé</safi:typeGestion>
+    <safi:téléphone>+212 524 622 311</safi:téléphone>
+    <safi:étoiles rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</safi:étoiles>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#aÉtéRestauréPar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="fr">a été restauré par</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://ontologie.safi.ma/onto#Acteur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#CultureLoisirs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Culture et Loisirs</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#HôpitalPrivé">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Hôpital Privé</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Santé"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#SnackLaMarine">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Snack"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Snack La Marine</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Snack La Marine.jpg</safi:aPourImage>
+    <safi:adresse>Rue Chakib Arsalan, Safi</safi:adresse>
+    <safi:horaires>10h00-23h00 (tous les jours)</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3055</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2404</safi:longitude>
+    <safi:prixMoyenRepas>50-100 DH</safi:prixMoyenRepas>
+    <safi:téléphone>+212 524 620 845</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Restauration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Restauration</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Corniche">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#EspacePublic"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Corniche de Safi</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Corniche.jpg</safi:aPourImage>
+    <safi:annéeConstruction>2018-2020</safi:annéeConstruction>
+    <safi:gèreParInstitution rdf:resource="http://ontologie.safi.ma/onto#ÉtatMarocain"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.29498518840773</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.244816404845688</safi:longitude>
+    <safi:typeGestion>Public</safi:typeGestion>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Famille_Benkaddour">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#PersonnePhysique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Famille Benkaddour</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Conservatoire">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#ConservatoireMusique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Conservatoire de Musique de Safi</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Le Conservatoire de Musique.jpg</safi:aPourImage>
+    <safi:annéeConstruction>1970-1980</safi:annéeConstruction>
+    <safi:dernièreRestauration>2018-2019</safi:dernièreRestauration>
+    <safi:gèreParInstitution rdf:resource="http://ontologie.safi.ma/onto#ÉtatMarocain"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2969</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2363</safi:longitude>
+    <safi:spécialités>Solfège, Violon, Piano, Oud, Guitare, Chant, Musique andalouse, Malhoun, Aïta</safi:spécialités>
+    <safi:typeGestion>Public</safi:typeGestion>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#siteWeb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">site web</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#HôpitalMohammedV">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#HôpitalPublic"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Hôpital Provincial Mohammed V</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Hôpital Provincial Mohammed V.jpg</safi:aPourImage>
+    <safi:annéeConstruction>1950</safi:annéeConstruction>
+    <safi:dernièreRestauration>2018-2021</safi:dernièreRestauration>
+    <safi:gèreParInstitution rdf:resource="http://ontologie.safi.ma/onto#ÉtatMarocain"/>
+    <safi:horaires>24h/24</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.28786895147936</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.238332162516757</safi:longitude>
+    <safi:spécialités>Médecine générale, Chirurgie, Maternité</safi:spécialités>
+    <safi:typeGestion>Public</safi:typeGestion>
+    <safi:téléphone>+212 524 622 365</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Collège">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Collège</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Enseignement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#noteMoyenne">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">note moyenne (avis)</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#Restauration"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#annéeClassementUNESCO">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">année classement UNESCO</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#GrandeMosquée">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Mosquée"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Grande Mosquée (Masjid Al-Aadam)</rdfs:label>
+    <safi:aConstruitPar rdf:resource="http://ontologie.safi.ma/onto#Moulay_Slimane"/>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/La Grande Mosquée (Masjid Al Aadam).jpg</safi:aPourImage>
+    <safi:annéeConstruction>XIIe siècle (Almohades) / Reconstruction 1807</safi:annéeConstruction>
+    <safi:classéUNESCO rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</safi:classéUNESCO>
+    <safi:dernièreRestauration>2023-2025 (entretien façades et toitures)</safi:dernièreRestauration>
+    <safi:estLiéHistoriquementÀ rdf:resource="http://ontologie.safi.ma/onto#MinaretAlmohade"/>
+    <safi:estSituéDans rdf:resource="http://ontologie.safi.ma/onto#MédinaAncienne"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2988</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.241999604899556</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#cuisineProposée">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">type de cuisine proposée</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#Restauration"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#SiteArtisanal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Site Artisanal</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#PatrimoineCulturel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#PersonnePhysique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Personne Physique</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Acteur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#PortSardinier">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Port"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Port de Pêche Historique (Port Sardinier)</rdfs:label>
+    <safi:aConstruitPar rdf:resource="http://ontologie.safi.ma/onto#Protectorat_Français"/>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Le Port de Pêche Historique (Le Port Sardinier).jpg</safi:aPourImage>
+    <safi:annéeConstruction>1920</safi:annéeConstruction>
+    <safi:dernièreRestauration>2022-2024</safi:dernièreRestauration>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.30261604339294</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.244711816539455</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Mehdi_Serghini">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#PersonnePhysique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Mehdi Serghini</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#latitude">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">latitude</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#lat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Plage">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#PlageNaturelle"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Plage de Safi (Sidi Bouzid)</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Plage.jpg</safi:aPourImage>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3180</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2515</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#ÉtablissementSupérieur">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Établissement d'Enseignement Supérieur</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Enseignement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#GareFerroviaire">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Gare Ferroviaire</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Transport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#PatrimoineUrbain">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Patrimoine Urbain</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Patrimoine"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#RasLafaa">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#SpotSurf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Ras Lafâa</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Ras Lafâa.jpg</safi:aPourImage>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3234</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2619</safi:longitude>
+    <safi:spécialités>Surf international, compétition mondiale, spot de classe mondiale, vagues longues</safi:spécialités>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Ahmad_al_Araj">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#PersonnePhysique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Ahmad al-Araj (Sultan Saadien)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#CollectifPotiers">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#CollectifArtisanal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Artisans Safiotes (collectif potiers)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#ServiceInstitution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Service et Institution</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Minaret">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Minaret</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#PatrimoineReligieux"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#InstitutionAdministrative">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Institution Administrative</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#ServiceInstitution"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#CollinePotiers_Site">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#SiteArtisanal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Colline des Potiers</rdfs:label>
+    <safi:aConstruitPar rdf:resource="http://ontologie.safi.ma/onto#CollectifPotiers"/>
+    <safi:annéeConstruction>~1875 (essor) / Ateliers ~1920</safi:annéeConstruction>
+    <safi:classéUNESCO rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</safi:classéUNESCO>
+    <safi:dernièreRestauration>2024-2026 (en cours)</safi:dernièreRestauration>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3015</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2335</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dc:creator>Projet Ontologie Safi</dc:creator>
+    <dc:description xml:lang="fr">Ontologie formelle décrivant les lieux, institutions, services et entités de la ville de Safi</dc:description>
+    <dc:title xml:lang="fr">Ontologie de la Ville de Safi (Maroc)</dc:title>
+    <owl:versionInfo>1.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#prixMoyenNuit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">prix moyen par nuit (DH)</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#Hébergement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#MédinaHistorique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Médina Historique</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#QuartierZone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#RiadPêcheur">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Riad"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Riad du Pêcheur</rdfs:label>
+    <safi:aConstruitPar rdf:resource="http://ontologie.safi.ma/onto#Mehdi_Serghini"/>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Riad de Pêcheur.jpg</safi:aPourImage>
+    <safi:adresse>1 rue de la Crête, Safi 46000</safi:adresse>
+    <safi:horaires>Hôtel 24h/24 / Restaurant 12h-23h</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3041</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2415</safi:longitude>
+    <safi:prixMoyenNuit>600-850 DH</safi:prixMoyenNuit>
+    <safi:siteWeb rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://ryaddupecheur.com/</safi:siteWeb>
+    <safi:typeGestion>Privé</safi:typeGestion>
+    <safi:téléphone>+212 671 815 570</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#HôpitalAicha">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#HôpitalPublic"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Hôpital Aïcha</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Hôpital de proximité Aisha.jpg</safi:aPourImage>
+    <safi:annéeConstruction>Inauguré 2023</safi:annéeConstruction>
+    <safi:gèreParInstitution rdf:resource="http://ontologie.safi.ma/onto#ÉtatMarocain"/>
+    <safi:horaires>Urgences 24h/24 / Services internes 08h00-16h00</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3134</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2311</safi:longitude>
+    <safi:spécialités>Urgences, Médecine générale, Pédiatrie, Gynécologie, Chirurgie, Radiologie, Laboratoire</safi:spécialités>
+    <safi:typeGestion>Public</safi:typeGestion>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#QuartierZone">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Quartier / Zone Urbaine</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#CollègeMoulayYoussef">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Collège"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Collège Moulay Youssef</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Collège Moulay Youssef.jpg</safi:aPourImage>
+    <safi:adresse>Av. Moulay Youssef, Safi 46000</safi:adresse>
+    <safi:gèreParInstitution rdf:resource="http://ontologie.safi.ma/onto#ÉtatMarocain"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2973</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2395</safi:longitude>
+    <safi:typeGestion>Public</safi:typeGestion>
+    <safi:téléphone>+212 524 462 297</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#ÉcolePrimaire">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">École Primaire</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Enseignement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#ÉtatModerne">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">État Moderne</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Acteur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#gèreParInstitution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="fr">géré par institution</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://ontologie.safi.ma/onto#Acteur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Enseignement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Établissement d'Enseignement</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#LycéeKhawarizmi">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Lycée"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Lycée Al Khawarizmi</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Lycée Al Khawarizmi.jpg</safi:aPourImage>
+    <safi:annéeConstruction>1990-2000</safi:annéeConstruction>
+    <safi:gèreParInstitution rdf:resource="http://ontologie.safi.ma/onto#ÉtatMarocain"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3029</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2187</safi:longitude>
+    <safi:typeGestion>Public</safi:typeGestion>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#UCA">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#ÉtatModerne"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Université Cadi Ayyad (UCA)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#étoiles">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">nombre d'étoiles</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#Hébergement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#offre">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="fr">offre</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://ontologie.safi.ma/onto#Service"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#ServiceProximité">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Service de Proximité</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#ServiceInstitution"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Moulay_Slimane">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#PersonnePhysique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Sultan Moulay Slimane</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#OCP">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#EntreprisePublique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">OCP Group (Office Chérifien des Phosphates)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Municipalité">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#InstitutionAdministrative"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Municipalité de Safi (Baladiya)</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Municipalité.jpg</safi:aPourImage>
+    <safi:annéeConstruction>1917</safi:annéeConstruction>
+    <safi:horaires>Lun-Ven 08h30-16h30</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2956</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2343</safi:longitude>
+    <safi:spécialités>État civil, urbanisme, permis, services communaux</safi:spécialités>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#HôpitalPublic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Hôpital Public</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Santé"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#ChezHosni">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Restaurant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Chez Hosni</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Chez hosni.jpg</safi:aPourImage>
+    <safi:adresse>Rue Les Forgerons, Safi</safi:adresse>
+    <safi:cuisineProposée>Cuisine traditionnelle marocaine (Tajine poisson, poulet, Kefta, Salades)</safi:cuisineProposée>
+    <safi:horaires>11h00-23h00 (dim-jeu)</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3005</safi:latitude>
+    <safi:livraison rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</safi:livraison>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2392</safi:longitude>
+    <safi:noteMoyenne>Top 1 restaurant Safi</safi:noteMoyenne>
+    <safi:prixMoyenRepas>50-150 DH</safi:prixMoyenRepas>
+    <safi:téléphone>+212 660 052 323</safi:téléphone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#MédinaAncienne">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#MédinaHistorique"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Médina Ancienne (La9dima)</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Médina La9dima.jpg</safi:aPourImage>
+    <safi:classéUNESCO rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</safi:classéUNESCO>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3004</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.2431</safi:longitude>
+    <safi:spécialités>Souk, artisans (poterie…), mosquées anciennes, maisons traditionnelles</safi:spécialités>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Pharmacie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Pharmacie</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Santé"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#spécialités">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">spécialités / services</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#adresse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">adresse</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#CathédralePortugaise">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#ÉdificeCultuelChrétien"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Cathédrale Portugaise</rdfs:label>
+    <safi:aConstruitPar rdf:resource="http://ontologie.safi.ma/onto#Portugais_ManuelIer"/>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Cathédrale Portugaise.jpg</safi:aPourImage>
+    <safi:aSuccédéÀ rdf:resource="http://ontologie.safi.ma/onto#GrandeMosquée"/>
+    <safi:annéeConstruction>1519</safi:annéeConstruction>
+    <safi:classéUNESCO rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</safi:classéUNESCO>
+    <safi:dernièreRestauration>En cours (2023-2025)</safi:dernièreRestauration>
+    <safi:estSituéDans rdf:resource="http://ontologie.safi.ma/onto#MédinaAncienne"/>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.2989</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.241794289504181</safi:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#LieuGéographique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Lieu Géographique</rdfs:label>
+    <rdfs:comment xml:lang="fr">Tout lieu physique localisable par coordonnées géographiques</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#EntitéSafi"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#HôtelPanorama">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Hôtel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Hôtel Panorama</rdfs:label>
+    <safi:aPourImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/Hôtel Atlantique Panorama.jpg</safi:aPourImage>
+    <safi:annéeConstruction>2003</safi:annéeConstruction>
+    <safi:horaires>24h/24</safi:horaires>
+    <safi:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.323314506550275</safi:latitude>
+    <safi:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-9.256555811591374</safi:longitude>
+    <safi:prixMoyenNuit>400-650 DH</safi:prixMoyenNuit>
+    <safi:typeGestion>Privé</safi:typeGestion>
+    <safi:téléphone>+212 524 628 585</safi:téléphone>
+    <safi:étoiles rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</safi:étoiles>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#PorteMédina">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Porte de la Médina</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#PatrimoineUrbain"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#PatrimoineMilitaire">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Patrimoine Militaire</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Patrimoine"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#dernièreRestauration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">dernière restauration</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#InstitutionJudiciaire">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Institution Judiciaire</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#ServiceInstitution"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#PatrimoineÉconomique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Patrimoine Économique</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Patrimoine"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Banque">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Banque</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#ServiceInstitution"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#téléphone">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">numéro de téléphone</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#aConstruitPar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="fr">a été construit par</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://ontologie.safi.ma/onto#Acteur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#GroupeAkdital">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#EntreprisePrivée"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Groupe Akdital</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Portugais_ManuelIer">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Acteur"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Portugais sous le règne de Manuel Ier</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#PatrimoineCulturel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Patrimoine Culturel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Patrimoine"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Dynastie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Dynastie</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Acteur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#EntreprisePublique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Entreprise Publique</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#ServiceInstitution"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Commerce">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Commerce</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#ÉdificeCultuelChrétien">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Édifice Cultuel Chrétien</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#PatrimoineReligieux"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Almohades">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Dynastie"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Almohades</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#ÉvénementHistorique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Événement Historique</rdfs:label>
+    <rdfs:comment xml:lang="fr">Événement datée ayant transformé un lieu (construction, restauration, conquête…)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#EntitéSafi"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Transport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Infrastructure de Transport</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#typeGestion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">type de gestion (public/privé/mixte)</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#EspacePublic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Espace Public / Promenade</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#CultureLoisirs"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Musée">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Musée</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#PatrimoineCulturel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#estLiéHistoriquementÀ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:label xml:lang="fr">est lié historiquement à</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#EquipementSportif">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Équipement Sportif</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#CultureLoisirs"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#CaféRestaurant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Café / Restaurant</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Restauration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#ÉtatMarocain">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#ÉtatModerne"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">État Marocain</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#long">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#aSuccédéÀ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="fr">a succédé à (sur le même site)</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Hôtel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Hôtel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Hébergement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#PlageNaturelle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Plage Naturelle</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#SiteNaturel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#livraison">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">livraison disponible</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#Restauration"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#InstitutionSécurité">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Institution de Sécurité Publique</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#ServiceInstitution"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#SpotSurf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Spot de Surf</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#SiteNaturel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Riad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Riad / Maison d'hôtes</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Hébergement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Protectorat_Français">
+    <rdf:type rdf:resource="http://ontologie.safi.ma/onto#Acteur"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="fr">Protectorat Français</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#classéUNESCO">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="fr">classé UNESCO</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Mosquée">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Mosquée</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#PatrimoineReligieux"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#CollectifArtisanal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Collectif Artisanal</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Acteur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Snack">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Snack</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Restauration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#CentreArts">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Centre Arts et Culture</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#CultureLoisirs"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#gYear">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#estSituéDans">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="fr">est situé dans</rdfs:label>
+    <rdfs:domain rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+    <rdfs:range rdf:resource="http://ontologie.safi.ma/onto#QuartierZone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#GrandeSurface">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Grande Surface / Centre Commercial</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#Commerce"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#SiteNaturel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Site Naturel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ontologie.safi.ma/onto#LieuGéographique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ontologie.safi.ma/onto#Service">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+</rdf:RDF>

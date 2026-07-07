@@ -32,7 +32,7 @@ const MonumentDetail = () => {
       ) : monument ? (
         <MonumentCard monument={monument} />
       ) : (
-        <div className="text-center py-20 text-red-500 font-bold bg-white rounded-xl shadow-md">Monument introuvable dans le graphe de connaissances.</div>
+        <div className="text-center py-20 text-red-500 font-bold bg-white rounded-xl shadow-md">Entité Urbaine introuvable dans le graphe de connaissances.</div>
       )}
     </div>
   );

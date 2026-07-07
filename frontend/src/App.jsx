@@ -43,7 +43,7 @@ const AppContent = () => {
             <PrivateRoute>
               <div className="p-8 max-w-2xl mx-auto w-full mt-10">
                 <div className="bg-white rounded-xl p-8 shadow-xl">
-                  <h2 className="text-2xl font-bold mb-6 text-brand">Ajouter / Mettre à jour un Monument</h2>
+                  <h2 className="text-2xl font-bold mb-6 text-brand">Ajouter / Mettre à jour une Entité Urbaine</h2>
                   <Form />
                 </div>
               </div>

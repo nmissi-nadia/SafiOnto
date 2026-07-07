@@ -34,7 +34,7 @@ const HomePage = () => {
               <Search className="group-hover:rotate-90 transition-transform" size={24} /> Recherche Avancée
             </Link>
             <Link to="/map" className="group flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-[0_10px_20px_rgba(0,0,0,0.3)]">
-              <List size={24} /> Liste des Monuments
+              <List size={24} /> Liste des Entités Urbaines
             </Link>
             <Link to="/expert" className="group flex items-center justify-center gap-3 bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-[0_10px_20px_rgba(0,0,0,0.3)]">
               <Shield className="group-hover:animate-pulse" size={24} /> Espace Expert
@@ -163,7 +163,7 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-8 relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
             <div className="text-5xl font-extrabold mb-2">150+</div>
-            <div className="text-brand-light text-lg font-medium uppercase tracking-wider">Monuments</div>
+            <div className="text-brand-light text-lg font-medium uppercase tracking-wider">Entités Urbaines</div>
           </div>
           <div>
             <div className="text-5xl font-extrabold mb-2">14</div>
