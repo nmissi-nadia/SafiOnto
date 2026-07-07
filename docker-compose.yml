@@ -16,6 +16,7 @@ services:
       - "8000:8000"
     volumes:
       - ./backend/app:/code/app
+      - ./ontology/data/image:/code/images
     environment:
       - FUSEKI_URL=http://fuseki:3030/safi/sparql
       - FUSEKI_UPDATE_URL=http://fuseki:3030/safi/update
