@@ -33,7 +33,7 @@ const AppContent = () => {
           {localStorage.getItem('safi_token') && (
             <button 
               onClick={() => { localStorage.removeItem('safi_token'); window.location.href = '/'; }} 
-              className={`ml-2 ${isHome ? 'bg-red-500/80 hover:bg-red-600 border-red-400' : 'bg-red-500 hover:bg-red-600 border-transparent text-white'} backdrop-blur-sm border px-4 py-2 rounded-full transition-colors flex items-center text-sm uppercase tracking-wider font-bold`}
+              className={`ml-2 ${isHome ? 'bg-amber-500/80 hover:bg-amber-600 border-amber-400 text-white' : 'bg-amber-600 hover:bg-amber-700 border-transparent text-white'} backdrop-blur-sm border px-4 py-2 rounded-full transition-colors flex items-center text-sm uppercase tracking-wider font-bold`}
             >
               Déconnexion
             </button>
