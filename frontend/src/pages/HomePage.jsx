@@ -107,7 +107,7 @@ const HomePage = () => {
           {/* Place 1 */}
           <div className="rounded-2xl overflow-hidden shadow-lg group cursor-pointer border border-gray-100 hover:shadow-2xl transition-all duration-300">
             <div className="h-64 overflow-hidden relative">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ksar_el-Bahr.jpg/640px-Ksar_el-Bahr.jpg" alt="Ksar El Bahar" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="http://localhost:8000/image/Qasr%20El%20Bahr.jpg" alt="Ksar El Bahar" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               <div className="absolute top-4 left-4 bg-brand text-white text-xs font-bold px-3 py-1 rounded-full">Forteresse</div>
             </div>
             <div className="p-6 bg-white relative z-10">
@@ -124,7 +124,7 @@ const HomePage = () => {
           {/* Place 2 */}
           <div className="rounded-2xl overflow-hidden shadow-lg group cursor-pointer border border-gray-100 hover:shadow-2xl transition-all duration-300">
             <div className="h-64 overflow-hidden relative">
-              <img src="https://www.moroccopedia.com/wp-content/uploads/2012/12/Safi-Pottery.jpg" alt="Colline des Potiers" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="http://localhost:8000/image/Colline%20des%20Potiers.jpg" alt="Colline des Potiers" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               <div className="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full">Artisanat</div>
             </div>
             <div className="p-6 bg-white relative z-10">
@@ -141,7 +141,7 @@ const HomePage = () => {
           {/* Place 3 */}
           <div className="rounded-2xl overflow-hidden shadow-lg group cursor-pointer border border-gray-100 hover:shadow-2xl transition-all duration-300">
             <div className="h-64 overflow-hidden relative">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Safi_Medina.jpg/640px-Safi_Medina.jpg" alt="La Médina de Safi" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="http://localhost:8000/image/Médina%20La9dima.jpg" alt="La Médina de Safi" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               <div className="absolute top-4 left-4 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full">Centre Historique</div>
             </div>
             <div className="p-6 bg-white relative z-10">
