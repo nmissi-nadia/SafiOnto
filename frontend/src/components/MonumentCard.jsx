@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
 import { MapPin, Info, Clock, Building, Calendar, Edit, Sparkles, Loader2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { getMonumentNarrative } from '../services/api';
+import { Link, useNavigate } from 'react-router-dom';
+import { getMonumentNarrative, deleteMonument } from '../services/api';
 
 const MonumentCard = ({ monument }) => {
   const isAuthenticated = !!localStorage.getItem('safi_token');
   const [narrative, setNarrative] = useState(null);
   const [loadingNarrative, setLoadingNarrative] = useState(false);
+  const navigate = useNavigate();
+
+  const handleDelete = async () => {
+    if (window.confirm('Voulez-vous vraiment supprimer ce monument de l\'ontologie ? Cette action est irréversible.')) {
+      const success = await deleteMonument(monument.uri);
+      if (success) {
+        navigate('/map');
+      } else {
+        alert('Erreur lors de la suppression.');
+      }
+    }
+  };
 
   const handleGenerateNarrative = async () => {
     setLoadingNarrative(true);
@@ -87,9 +99,14 @@ const MonumentCard = ({ monument }) => {
           <span className="truncate">URI Sémantique : <a href={monument.uri} className="text-blue-500 hover:underline" target="_blank" rel="noreferrer">{monument.uri}</a></span>
         </div>
         {isAuthenticated && (
-          <Link to={`/expert?uri=${encodeURIComponent(monument.uri)}`} className="bg-brand text-white px-4 py-2 rounded text-sm font-bold flex items-center gap-2 hover:bg-brand-dark transition-colors whitespace-nowrap">
-            <Edit size={16} /> Modifier
-          </Link>
+          <div className="flex gap-2">
+            <Link to={`/expert?uri=${encodeURIComponent(monument.uri)}`} className="bg-brand text-white px-4 py-2 rounded text-sm font-bold flex items-center gap-2 hover:bg-brand-dark transition-colors whitespace-nowrap">
+              <Edit size={16} /> Modifier
+            </Link>
+            <button onClick={handleDelete} className="bg-red-600 text-white px-4 py-2 rounded text-sm font-bold flex items-center gap-2 hover:bg-red-700 transition-colors whitespace-nowrap">
+              Supprimer
+            </button>
+          </div>
         )}
       </div>
     </div>

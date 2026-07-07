@@ -45,9 +45,13 @@ export const fetchMonuments = async () => {
 
 export const getMonumentByUri = async (uri) => {
     try {
-        const response = await fetch(`${API_BASE_URL}/monuments/details?uri=${encodeURIComponent(uri)}`);
+        const response = await fetch(`${API_BASE_URL}/monuments/detail?uri=${encodeURIComponent(uri)}`);
         if (!response.ok) return null;
-        return await response.json();
+        const result = await response.json();
+        if (result.status === "success") {
+            return result.data;
+        }
+        return null;
     } catch (error) {
         console.error("Failed to fetch monument detail:", error);
         return null;
@@ -114,6 +118,57 @@ export const updateMonument = async (monumentData) => {
         return null;
     } catch (error) {
         console.error("Error updating monument:", error);
+        return null;
+    }
+};
+
+export const deleteMonument = async (uri) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/monuments/?uri=${encodeURIComponent(uri)}`, {
+            method: 'DELETE',
+            headers: {
+                ...getAuthHeaders()
+            }
+        });
+        if (response.status === 401) {
+            localStorage.removeItem('safi_token');
+            window.location.href = '/login';
+            return null;
+        }
+        const result = await response.json();
+        return result.status === "success";
+    } catch (error) {
+        console.error("Error deleting monument:", error);
+        return false;
+    }
+};
+
+export const uploadImage = async (file) => {
+    try {
+        const formData = new FormData();
+        formData.append('file', file);
+        
+        const response = await fetch(`${API_BASE_URL}/monuments/upload`, {
+            method: 'POST',
+            headers: {
+                ...getAuthHeaders()
+            },
+            body: formData
+        });
+        
+        if (response.status === 401) {
+            localStorage.removeItem('safi_token');
+            window.location.href = '/login';
+            return null;
+        }
+        
+        const result = await response.json();
+        if (result.status === "success") {
+            return result.imageUrl;
+        }
+        return null;
+    } catch (error) {
+        console.error("Error uploading image:", error);
         return null;
     }
 };

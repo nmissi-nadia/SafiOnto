@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { createMonument, updateMonument, getMonumentByUri } from '../services/api';
+import { createMonument, updateMonument, getMonumentByUri, uploadImage } from '../services/api';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const Form = () => {
@@ -11,8 +11,10 @@ const Form = () => {
     lat: '',
     lng: ''
   });
+  const [imageFile, setImageFile] = useState(null);
   const [status, setStatus] = useState('');
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const uriToEdit = searchParams.get('uri');
 
   useEffect(() => {
@@ -44,11 +46,24 @@ const Form = () => {
     e.preventDefault();
     setStatus('loading');
     
+    let uploadedImageUrl = null;
+    if (imageFile) {
+        uploadedImageUrl = await uploadImage(imageFile);
+        if (!uploadedImageUrl) {
+            setStatus('error');
+            return;
+        }
+    }
+    
     const payload = {
       ...formData,
       lat: parseFloat(formData.lat),
       lng: parseFloat(formData.lng)
     };
+    
+    if (uploadedImageUrl) {
+        payload.imageUrl = uploadedImageUrl;
+    }
 
     let result;
     if (uriToEdit) {
@@ -60,7 +75,7 @@ const Form = () => {
     
     if (result) {
       setStatus('success');
-      setTimeout(() => navigate('/map'), 2000);
+      setTimeout(() => navigate('/map'), 1000);
     } else {
       setStatus('error');
     }
@@ -128,6 +143,11 @@ const Form = () => {
       <div>
         <label className="block text-sm font-bold mb-1 text-gray-700">Description (dc:description)</label>
         <textarea name="description" value={formData.description} onChange={handleChange} required className="w-full border rounded p-2 h-24" placeholder="Description du lieu..." />
+      </div>
+
+      <div>
+        <label className="block text-sm font-bold mb-1 text-gray-700">Image du lieu (Optionnel)</label>
+        <input type="file" accept="image/*" onChange={(e) => setImageFile(e.target.files[0])} className="w-full border rounded p-2" />
       </div>
 
       <button type="submit" disabled={status === 'loading'} className="bg-brand text-white font-bold py-3 mt-4 rounded hover:bg-brand-dark transition-colors">

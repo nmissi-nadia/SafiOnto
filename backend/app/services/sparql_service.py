@@ -22,7 +22,7 @@ class SPARQLService:
         PREFIX safi: <http://ontologie.safi.ma/onto#> 
         PREFIX dc: <http://purl.org/dc/elements/1.1/>
         
-        SELECT ?monument ?name ?type ?year ?lat ?lng ?desc
+        SELECT ?monument ?name ?type ?year ?lat ?lng ?desc ?image
         WHERE {
           ?monument rdf:type ?type .
           ?type rdfs:subClassOf* safi:LieuGéographique .
@@ -32,6 +32,7 @@ class SPARQLService:
           OPTIONAL { ?monument safi:latitude ?lat . }
           OPTIONAL { ?monument safi:longitude ?lng . }
           OPTIONAL { ?monument dc:description ?desc . }
+          OPTIONAL { ?monument safi:aPourImage ?image . }
         }
         """
         results = self.execute_query(query)
@@ -46,6 +47,7 @@ class SPARQLService:
                     "type": result.get("type", {}).get("value", "").split("#")[-1].split("/")[-1],
                     "year": result.get("year", {}).get("value", "Date inconnue"),
                     "description": result.get("desc", {}).get("value", ""),
+                    "imageUrl": f"http://localhost:8000/{result.get('image', {}).get('value')}" if result.get('image', {}).get('value') else None,
                     "lat": float(lat),
                     "lng": float(lng)
                 })
@@ -58,11 +60,13 @@ class SPARQLService:
         PREFIX safi: <http://ontologie.safi.ma/onto#> 
         PREFIX dc: <http://purl.org/dc/elements/1.1/>
         
-        SELECT ?name ?type ?year ?desc WHERE {{
+        SELECT ?name ?type ?year ?desc ?image WHERE {{
           <{uri}> rdf:type ?type .
+          FILTER (?type != <http://www.w3.org/2002/07/owl#NamedIndividual>)
           OPTIONAL {{ <{uri}> rdfs:label ?name . }}
           OPTIONAL {{ <{uri}> dc:description ?desc . }}
           OPTIONAL {{ <{uri}> safi:annéeConstruction ?year . }}
+          OPTIONAL {{ <{uri}> safi:aPourImage ?image . }}
         }}
         """
         results = self.execute_query(query)
@@ -74,12 +78,15 @@ class SPARQLService:
             "name": result.get("name", {}).get("value", "Inconnu"),
             "type": result.get("type", {}).get("value", "").split("#")[-1].split("/")[-1],
             "year": result.get("year", {}).get("value", "Date inconnue"),
-            "description": result.get("desc", {}).get("value", "Aucune description")
+            "description": result.get("desc", {}).get("value", "Aucune description"),
+            "imageUrl": f"http://localhost:8000/{result.get('image', {}).get('value')}" if result.get('image', {}).get('value') else None
         }
 
     def insert_monument(self, data: dict):
         uri_name = data['name'].replace(' ', '_').replace("'", "").replace('"', '')
         uri = f"http://ontologie.safi.ma/onto#{uri_name}"
+        
+        image_triple = f'safi:aPourImage "{data["imageUrl"]}" ;' if data.get('imageUrl') else ""
         
         query = f"""
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -94,11 +101,12 @@ class SPARQLService:
                   rdfs:label "{data['name']}"@fr ;
                   safi:annéeConstruction "{data['year']}" ;
                   dc:description "{data['description']}"@fr ;
+                  {image_triple}
                   safi:latitude {data['lat']} ;
                   safi:longitude {data['lng']} .
         }}
         """
-        sparql = SPARQLWrapper(settings.FUSEKI_URL)
+        sparql = SPARQLWrapper(settings.FUSEKI_UPDATE_URL)
         sparql.setQuery(query)
         sparql.method = 'POST'
         sparql.query()
@@ -106,6 +114,8 @@ class SPARQLService:
 
     def update_monument(self, data: dict):
         uri = data['uri']
+        
+        image_triple = f'safi:aPourImage "{data["imageUrl"]}" ;' if data.get('imageUrl') else ""
         
         # We delete all existing properties and insert new ones
         query = f"""
@@ -121,6 +131,7 @@ class SPARQLService:
                   rdfs:label ?label ;
                   safi:annéeConstruction ?year ;
                   dc:description ?desc ;
+                  safi:aPourImage ?image ;
                   safi:latitude ?lat ;
                   safi:longitude ?lng .
         }}
@@ -129,6 +140,7 @@ class SPARQLService:
                   rdfs:label "{data['name']}"@fr ;
                   safi:annéeConstruction "{data['year']}" ;
                   dc:description "{data['description']}"@fr ;
+                  {image_triple}
                   safi:latitude {data['lat']} ;
                   safi:longitude {data['lng']} .
         }}
@@ -137,14 +149,30 @@ class SPARQLService:
           OPTIONAL {{ <{uri}> rdfs:label ?label . }}
           OPTIONAL {{ <{uri}> safi:annéeConstruction ?year . }}
           OPTIONAL {{ <{uri}> dc:description ?desc . }}
+          OPTIONAL {{ <{uri}> safi:aPourImage ?image . }}
           OPTIONAL {{ <{uri}> safi:latitude ?lat . }}
           OPTIONAL {{ <{uri}> safi:longitude ?lng . }}
         }}
         """
-        sparql = SPARQLWrapper(settings.FUSEKI_URL)
+        sparql = SPARQLWrapper(settings.FUSEKI_UPDATE_URL)
         sparql.setQuery(query)
         sparql.method = 'POST'
         sparql.query()
         return {"uri": uri, "message": "Monument updated successfully"}
+
+    def delete_monument(self, uri: str):
+        query = f"""
+        DELETE {{
+          <{uri}> ?p ?o .
+        }}
+        WHERE {{
+          <{uri}> ?p ?o .
+        }}
+        """
+        sparql = SPARQLWrapper(settings.FUSEKI_UPDATE_URL)
+        sparql.setQuery(query)
+        sparql.method = 'POST'
+        sparql.query()
+        return {"uri": uri, "message": "Monument deleted successfully"}
 
 sparql_service = SPARQLService()

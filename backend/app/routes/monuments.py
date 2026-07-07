@@ -1,4 +1,7 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, UploadFile, File
+import os
+import shutil
+import uuid
 from pydantic import BaseModel
 from typing import List, Optional
 from ..services.sparql_service import sparql_service
@@ -12,7 +15,7 @@ class MonumentCreate(BaseModel):
     type: str
     year: str
     description: str
-    imageUrl: str
+    imageUrl: Optional[str] = None
     lat: float
     lng: float
 
@@ -22,7 +25,7 @@ class MonumentUpdate(BaseModel):
     type: str
     year: str
     description: str
-    imageUrl: str
+    imageUrl: Optional[str] = None
     lat: float
     lng: float
 
@@ -72,5 +75,31 @@ def update_monument_endpoint(monument: MonumentUpdate, current_user: str = Depen
     try:
         result = sparql_service.update_monument(monument.dict())
         return {"status": "success", "data": result}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@router.delete("/")
+def delete_monument_endpoint(uri: str, current_user: str = Depends(get_current_user)):
+    try:
+        result = sparql_service.delete_monument(uri)
+        return {"status": "success", "data": result}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@router.post("/upload")
+async def upload_image(file: UploadFile = File(...), current_user: str = Depends(get_current_user)):
+    try:
+        # Create images directory if it doesn't exist
+        os.makedirs("/code/images", exist_ok=True)
+        
+        # Generate a unique filename to avoid overwrites, or just use the original
+        file_extension = os.path.splitext(file.filename)[1]
+        filename = f"{uuid.uuid4().hex}{file_extension}"
+        file_path = f"/code/images/{filename}"
+        
+        with open(file_path, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+            
+        return {"status": "success", "imageUrl": f"image/{filename}"}
     except Exception as e:
         return {"status": "error", "message": str(e)}
