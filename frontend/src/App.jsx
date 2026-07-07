@@ -30,6 +30,14 @@ const AppContent = () => {
           <Link to="/expert" className={`ml-4 ${isHome ? 'bg-white/20 hover:bg-white/30 border-white/40' : 'bg-brand-dark hover:bg-white hover:text-brand border-transparent'} backdrop-blur-sm border px-5 py-2 rounded-full transition-colors flex items-center gap-2 text-sm uppercase tracking-wider font-bold`}>
             <Shield size={16} /> Expert
           </Link>
+          {localStorage.getItem('safi_token') && (
+            <button 
+              onClick={() => { localStorage.removeItem('safi_token'); window.location.href = '/'; }} 
+              className={`ml-2 ${isHome ? 'bg-red-500/80 hover:bg-red-600 border-red-400' : 'bg-red-500 hover:bg-red-600 border-transparent text-white'} backdrop-blur-sm border px-4 py-2 rounded-full transition-colors flex items-center text-sm uppercase tracking-wider font-bold`}
+            >
+              Déconnexion
+            </button>
+          )}
         </nav>
       </header>
       
